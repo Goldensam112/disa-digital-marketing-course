@@ -3,220 +3,344 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Disa Study | Professional Digital Learning</title>
+<title>Disa Study | Premier Digital Marketing Institute</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#17172b;--muted:#69697d;--purple:#5e3cee;--violet:#9d85ff;--lime:#d8ff72;--paper:#faf9ff;--line:#eae8f2;--white:#fff;--shadow:0 18px 50px rgba(40,24,105,0.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background:var(--paper)}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
-.container{width:min(1160px,calc(100% - 40px));margin:auto}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:11px;font-family:Manrope,sans-serif;font-weight:900;font-size:20px;letter-spacing:-.4px}
-.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--purple);color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:0 8px 18px #5e3cee3b}
-.navlinks{display:flex;gap:30px;align-items:center;color:#49485f;font-size:14px;font-weight:600}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.button{border:0;border-radius:12px;background:var(--purple);color:#fff;font-weight:700;padding:12px 20px;display:inline-flex;gap:8px;align-items:center;justify-content:center;cursor:pointer;transition:.2s;box-shadow:0 8px 20px #5e3cee30}
-.button:hover{transform:translateY(-2px);box-shadow:0 12px 26px #5e3cee40}
-.button.secondary{background:#f1edff;color:var(--purple);box-shadow:none}
-.button.light{background:var(--lime);color:var(--ink);box-shadow:none}
-.hero{padding:54px 0 86px;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:#f0ebff;color:var(--purple);border-radius:99px;font-size:12px;font-weight:800;text-transform:uppercase}
-.hero h1{font:900 clamp(38px,5.5vw,64px)/1.08 Manrope,sans-serif;margin:18px 0;letter-spacing:-2.5px}
-.hero h1 em{font-style:normal;color:var(--purple)}
-.hero-copy{font-size:17px;line-height:1.7;color:var(--muted);max-width:540px}
-.strip{background:#17172b;color:#fff;padding:19px 0}
-.strip-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.strip-item{display:flex;gap:11px;align-items:center;font-size:13px;color:#d8d7e2}
-.strip-item strong{color:#fff}
-.check{color:var(--lime);font-size:17px}
-.section{padding:80px 0}
-.section-head{text-align:center;max-width:700px;margin:0 auto 45px}
-.kicker{color:var(--purple);font-size:12px;letter-spacing:1.3px;font-weight:800;text-transform:uppercase}
-.section h2{font:800 clamp(30px,4.5vw,46px)/1.15 Manrope,sans-serif;letter-spacing:-1.8px;margin:12px 0}
-.section-head p{color:var(--muted);line-height:1.7;font-size:16px;margin:12px auto 0}
-.modules{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.module{background:white;border:1px solid var(--line);border-radius:18px;padding:23px;min-height:177px;transition:.2s}
-.module:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d8ccff}
-.module-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#f0ecff;font-size:20px;margin-bottom:18px}
-.module h3{font-size:16px;margin:0 0 7px}
-.module p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
-.why{background:#17172b;color:white}
-.why .section-head p{color:#b8b6c8}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.why-card{border:1px solid #38374f;background:#222238;border-radius:19px;padding:26px}
-.why-card .module-icon{background:#34304f}
-.why-card h3{font-size:17px;margin:0 0 10px}
-.why-card p{color:#b8b6c8;font-size:14px;line-height:1.65;margin:0}
-.enroll-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:50px;align-items:start}
-.price-card{background:var(--purple);color:white;border-radius:21px;padding:24px;margin-top:27px}
-.price strong{font:800 44px Manrope}
-.save{background:var(--lime);color:#303c10;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:800;margin-left:10px}
-.form-card{background:white;border:1px solid var(--line);border-radius:23px;padding:35px;box-shadow:var(--shadow)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field.full{grid-column:1/-1}
-.field label{font-size:13px;font-weight:700}
-.field input,.field select,.field textarea{border:1px solid #e1ddec;border-radius:10px;padding:12px;outline:none;background:#faf9fe}
-.payment-step{display:none;margin-top:20px;padding:20px;background:#fbfaff;border-radius:16px;border:1px solid var(--line)}
-.payment-qr{width:180px;height:180px;border-radius:12px;border:1px solid var(--line);padding:6px;background:#fff}
-.faq-list{max-width:800px;margin:auto;display:grid;gap:12px}
-.faq{border:1px solid var(--line);background:white;border-radius:15px;padding:19px 21px}
-.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
-.faq summary:after{content:'+';font-size:22px;color:var(--purple)}
-.faq[open] summary:after{content:'−'}
-.faq p{margin:13px 0 0;color:var(--muted);font-size:14px;line-height:1.7}
-.footer{background:#17172b;color:white;padding:40px 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.dashboard-mode>header,.dashboard-mode>main,.dashboard-mode>footer{display:none!important}
-.dashboard-screen{min-height:100vh;padding:42px 0 70px;background:linear-gradient(180deg,#faf9ff,#f1edff)}
-.dashboard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
-.status-card,.dash-panel{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px;box-shadow:0 12px 34px #2f22600b}
-.status-pill{display:inline-block;background:#eeeaff;color:var(--purple);border-radius:99px;padding:8px 14px;font-size:11px;font-weight:800}
-.dashboard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.dash-panel.wide{grid-column:1/-1}
-.module-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.module-list>div{border:1px solid var(--line);border-radius:12px;padding:14px}
-.module-list b{display:block;font-size:14px}
-.module-list span{font-size:12px;color:var(--muted)}
-.login-backdrop{position:fixed;inset:0;background:#12122499;z-index:999;place-items:center;padding:20px;display:none}
-.login-card{background:white;width:min(420px,100%);border-radius:22px;padding:32px;box-shadow:var(--shadow);position:relative}
-.success{display:none;margin-top:14px;padding:12px;background:#e9fbf0;color:#206b42;border-radius:10px;font-size:13px}
-.success.error{background:#fff0ee;color:#9a3024}
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #eef2ff;
+  --accent: #10b981;
+  --dark: #0f172a;
+  --slate: #334155;
+  --muted: #64748b;
+  --surface: #ffffff;
+  --bg: #f8fafc;
+  --border: #e2e8f0;
+  --radius: 16px;
+  --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+button, input, select, textarea { font-family: inherit; }
+.container { width: min(1200px, calc(100% - 32px)); margin: auto; }
 
-/* MODAL ID CARD */
-#id-card-modal{position:fixed;inset:0;background:rgba(20,18,36,0.85);z-index:1000;display:none;place-items:center;padding:20px}
-.id-modal-box{background:#fff;border-radius:22px;overflow:hidden;width:min(380px,100%);box-shadow:0 25px 60px rgba(0,0,0,0.3);position:relative}
-.id-card-view{padding:24px;text-align:center}
-.id-head-tag{background:var(--purple);color:#fff;padding:16px;text-align:center}
-.id-user-avatar{width:75px;height:75px;border-radius:50%;background:#eeeaff;color:var(--purple);display:inline-grid;place-items:center;font-size:32px;font-weight:bold;margin-top:-35px;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
-.id-details-box{background:#f8f7fc;padding:14px;border-radius:14px;margin:16px 0;text-align:left;font-size:12px;display:grid;gap:8px}
-.id-details-box div{display:flex;justify-content:space-between}
-@media(max-width:768px){.hero-grid,.enroll-grid,.dashboard-grid,.modules,.why-grid{grid-template-columns:1fr}.navlinks{display:none}}
+/* HEADER & MEGA MENU */
+.header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; color: var(--dark); }
+.brand-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), #7c3aed); color: #fff; display: grid; place-items: center; font-size: 22px; font-family: 'Space Grotesk', sans-serif; box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3); }
+.nav-menu { display: flex; align-items: center; gap: 32px; list-style: none; font-size: 14px; font-weight: 600; color: var(--slate); }
+.nav-menu a:hover { color: var(--primary); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+
+.btn { border: 0; border-radius: 12px; padding: 12px 22px; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease; }
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35); }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.btn-secondary { background: var(--primary-light); color: var(--primary); }
+.btn-secondary:hover { background: #e0e7ff; }
+
+/* MOBILE HAMBURGER DRAWER */
+.hamburger { display: none; background: none; border: 0; font-size: 26px; cursor: pointer; color: var(--dark); }
+.mobile-drawer { display: none; position: fixed; inset: 0; background: #fff; z-index: 200; padding: 24px; flex-direction: column; gap: 20px; }
+.mobile-drawer.active { display: flex; }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; }
+.drawer-links { display: flex; flex-direction: column; gap: 16px; font-size: 18px; font-weight: 700; }
+
+/* HERO */
+.hero { padding: 70px 0 90px; background: radial-gradient(1000px circle at top center, #f1f5f9, var(--bg)); }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; background: var(--primary-light); color: var(--primary); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.hero h1 { font-size: clamp(38px, 5vw, 60px); font-weight: 800; line-height: 1.1; margin: 18px 0; letter-spacing: -1.5px; }
+.hero h1 span { color: var(--primary); }
+.hero p { font-size: 18px; color: var(--muted); margin-bottom: 28px; max-width: 540px; }
+.hero-stats { display: flex; gap: 30px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+.stat-item h3 { font-size: 24px; font-weight: 800; }
+.stat-item p { font-size: 12px; color: var(--muted); margin: 0; }
+
+.pricing-preview { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 32px; box-shadow: var(--shadow); position: relative; }
+.pricing-tag { position: absolute; top: -14px; right: 28px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 99px; text-transform: uppercase; }
+.price-box { font-size: 48px; font-weight: 800; color: var(--dark); font-family: 'Space Grotesk', sans-serif; margin: 12px 0; }
+.price-box del { font-size: 18px; color: var(--muted); margin-left: 10px; }
+
+/* FEATURES STRIP */
+.strip { background: var(--dark); color: #fff; padding: 22px 0; }
+.strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.strip-item h4 { font-size: 14px; font-weight: 700; }
+.strip-item p { font-size: 12px; color: #94a3b8; }
+
+/* COURSE MODULES */
+.section { padding: 90px 0; }
+.section-title { text-align: center; max-width: 650px; margin: 0 auto 50px; }
+.section-title h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin: 12px 0; }
+.modules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.module-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: transform 0.2s, box-shadow 0.2s; }
+.module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--primary); }
+.module-num { font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 8px; }
+.module-card h3 { font-size: 17px; margin-bottom: 8px; }
+.module-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ENROLLMENT & PAYMENT */
+.enroll-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 50px; align-items: start; }
+.form-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 36px; box-shadow: var(--shadow); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 13px; font-weight: 700; color: var(--slate); }
+.field input, .field select, .field textarea { border: 1px solid var(--border); border-radius: 10px; padding: 12px; font-size: 14px; background: #fdfdfd; outline: none; }
+.field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+
+.payment-box { display: none; background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: var(--radius); padding: 24px; margin-top: 24px; }
+.qr-frame { width: 190px; height: 190px; border-radius: 12px; border: 1px solid var(--border); background: #fff; padding: 8px; object-fit: contain; }
+
+/* FAQ */
+.faq-grid { max-width: 800px; margin: auto; display: grid; gap: 14px; }
+.faq-box { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+.faq-box summary { cursor: pointer; font-weight: 700; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-box summary::-webkit-details-marker { display: none; }
+.faq-box summary:after { content: "+"; font-size: 22px; color: var(--primary); }
+.faq-box[open] summary:after { content: "−"; }
+.faq-box p { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+/* DASHBOARD LAYOUT (STUDENT PORTAL) */
+.dashboard-mode > header, .dashboard-mode > main, .dashboard-mode > footer { display: none !important; }
+.dash-screen { min-height: 100vh; background: #f1f5f9; display: none; }
+.dash-nav { height: 72px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; }
+.dash-body { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 72px); }
+.dash-sidebar { background: #fff; border-right: 1px solid var(--border); padding: 24px 16px; display: flex; flex-direction: column; gap: 8px; }
+.sidebar-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 700; color: var(--slate); cursor: pointer; transition: 0.2s; }
+.sidebar-link:hover, .sidebar-link.active { background: var(--primary-light); color: var(--primary); }
+.dash-content { padding: 36px; overflow-y: auto; }
+
+.content-pane { display: none; }
+.content-pane.active { display: block; }
+.dash-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+
+/* MODAL & DIALOGS */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); z-index: 500; display: none; place-items: center; padding: 20px; backdrop-filter: blur(4px); }
+.modal-content { background: #fff; border-radius: 24px; padding: 32px; width: min(440px, 100%); position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+.modal-close { position: absolute; right: 20px; top: 20px; border: 0; background: none; font-size: 24px; cursor: pointer; color: var(--muted); }
+
+/* AUTOMATED ID CARD STYLING */
+.id-card-render { width: 360px; margin: auto; background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: var(--shadow); }
+.id-card-top { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 22px 20px; color: #fff; text-align: center; }
+.id-card-avatar { width: 84px; height: 84px; border-radius: 50%; background: #e0e7ff; color: var(--primary); font-size: 34px; font-weight: 800; display: grid; place-items: center; margin: -42px auto 12px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.id-details-table { margin: 16px 20px; font-size: 12px; background: #f8fafc; border-radius: 12px; padding: 12px; }
+.id-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #e2e8f0; }
+.id-row:last-child { border-bottom: none; }
+.id-row span { color: var(--muted); font-weight: 600; }
+.id-row strong { color: var(--dark); font-weight: 700; }
+
+.success { display: none; margin-top: 14px; padding: 14px; border-radius: 10px; font-size: 13px; font-weight: 600; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.success.error { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+
+/* FOOTER */
+.footer { background: var(--dark); color: #fff; padding: 60px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer h4 { font-size: 16px; margin-bottom: 16px; }
+.footer ul { list-style: none; display: grid; gap: 10px; font-size: 14px; color: #94a3b8; }
+.footer-bot { border-top: 1px solid #334155; padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; color: #94a3b8; }
+
+@media(max-width: 900px) {
+  .hero-grid, .enroll-grid, .dash-body { grid-template-columns: 1fr; }
+  .modules-grid { grid-template-columns: repeat(2, 1fr); }
+  .strip-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-menu { display: none; }
+  .hamburger { display: block; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .dash-sidebar { display: flex; flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .sidebar-link { white-space: nowrap; }
+}
+@media(max-width: 600px) {
+  .modules-grid, .strip-grid, .form-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+}
 </style>
 </head>
 <body>
 
-<header class="container nav">
-  <a class="brand" href="#top"><span class="brand-mark">D</span><span>Disa Study</span></a>
-  <nav class="navlinks"><a href="#course">Course</a><a href="#why-us">Why Disa Study</a><a href="#faq">FAQs</a></nav>
-  <div class="nav-actions">
-    <button class="button secondary" id="student-login-open" type="button">Student Login</button>
-    <a class="button" href="#enroll">Enroll for ₹799 <span>↗</span></a>
+<!-- DESKTOP & MOBILE HEADER -->
+<header class="header">
+  <div class="container nav-bar">
+    <a class="brand" href="#top">
+      <div class="brand-icon">D</div>
+      <div>Disa Study</div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#course">Course Curriculum</a></li>
+      <li><a href="#why-us">Why Disa Study</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#enroll">Student Verification</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-secondary" id="student-login-open" type="button">Student Portal</button>
+      <a class="btn btn-primary" href="#enroll">Enroll Now ₹799</a>
+      <button class="hamburger" id="drawer-toggle" aria-label="Open menu">☰</button>
+    </div>
   </div>
 </header>
 
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-head">
+    <div class="brand"><div class="brand-icon">D</div> Disa Study</div>
+    <button style="border:0;background:none;font-size:28px" id="drawer-close">×</button>
+  </div>
+  <div class="drawer-links">
+    <a href="#course" class="drawer-item">Course Curriculum</a>
+    <a href="#why-us" class="drawer-item">Why Disa Study</a>
+    <a href="#faq" class="drawer-item">FAQs</a>
+    <a href="#enroll" class="drawer-item">Enroll Now</a>
+  </div>
+  <button class="btn btn-secondary" id="mobile-login-btn" style="width:100%">Student Portal Login</button>
+</div>
+
 <main id="top">
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">✦ Official Learning Platform</span>
-        <h1>Learn digital marketing. <em>Build your future.</em></h1>
-        <p class="hero-copy">Go from curious beginner to confident marketer. Learn the complete A to Z of digital marketing with practical lessons from Disa Study.</p>
-        <div style="margin-top:24px;display:flex;gap:14px">
-          <a class="button" href="#enroll">Start learning for ₹799 →</a>
-          <a class="button secondary" href="#course">Explore course ↓</a>
+        <span class="badge">✦ India's Recognized Ed-Tech Portal</span>
+        <h1>Master Practical Digital Marketing with <span>Disa Study</span></h1>
+        <p>Comprehensive, industry-vetted certification course. Learn organic SEO, Meta ads, analytics, funnels, and get an automated student identity card.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#enroll">Start Certification (₹799) →</a>
+          <a class="btn btn-secondary" href="#course">Explore 8 Modules ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>8</h3><p>Practical Modules</p></div>
+          <div class="stat-item"><h3>100%</h3><p>Online & Self-Paced</p></div>
+          <div class="stat-item"><h3>Instant</h3><p>Digital Student ID</p></div>
         </div>
       </div>
       <div>
-        <div style="background:#fff;border-radius:24px;padding:30px;border:1px solid var(--line);box-shadow:var(--shadow);text-align:center">
-          <div style="font-size:48px;font-weight:900;color:var(--purple);font-family:Manrope">₹799</div>
-          <p style="color:var(--muted);margin:6px 0 16px">Complete Digital Marketing Course</p>
-          <div style="font-size:13px;color:#28a77a;font-weight:700">✓ Automated Student ID Card & Certificate Included</div>
+        <div class="pricing-preview">
+          <div class="pricing-tag">Limited Batch Offer</div>
+          <span style="font-size:12px;font-weight:700;color:var(--muted)">COMPLETE MASTERCLASS</span>
+          <div class="price-box">₹799 <del>₹4,999</del></div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px">One-time transparent fee. No hidden subscription charges.</p>
+          <ul style="list-style:none;display:grid;gap:10px;font-size:13px;margin-bottom:24px">
+            <li>✔ Full 8-Module Syllabus</li>
+            <li>✔ Automated Student ID Card with Roll Number</li>
+            <li>✔ Lifetime Study Notes & Resource Files</li>
+            <li>✔ WhatsApp Dedicated Faculty Support</li>
+          </ul>
+          <a class="btn btn-primary" href="#enroll" style="width:100%">Claim Enrollment Seat</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FEATURES STRIP -->
   <div class="strip">
-    <div class="container strip-inner">
-      <div class="strip-item"><span class="check">✓</span><span><strong>Complete A to Z</strong><br>Digital marketing syllabus</span></div>
-      <div class="strip-item"><span class="check">✓</span><span><strong>Beginner friendly</strong><br>Step-by-step guidance</span></div>
-      <div class="strip-item"><span class="check">✓</span><span><strong>Practical skills</strong><br>Industry ready learning</span></div>
-      <div class="strip-item"><span class="check">✓</span><span><strong>Verified ID & Proof</strong><br>Instant Portal Access</span></div>
+    <div class="container strip-grid">
+      <div class="strip-item"><h4>Verified Pedagogy</h4><p>Curated by agency veterans</p></div>
+      <div class="strip-item"><h4>Zero Gatekeeping</h4><p>Beginner to advanced roadmap</p></div>
+      <div class="strip-item"><h4>Instant Verification</h4><p>Automated ID & receipt issuance</p></div>
+      <div class="strip-item"><h4>Direct Mentorship</h4><p>1-on-1 query resolution</p></div>
     </div>
   </div>
 
+  <!-- MODULES SECTION -->
   <section class="section" id="course">
     <div class="container">
-      <div class="section-head">
-        <span class="kicker">The complete course</span>
-        <h2>Everything you need to grow online</h2>
-        <p>Understand the channels, tools and strategies behind digital marketing, all in one structured learning journey.</p>
+      <div class="section-title">
+        <span class="badge">Structured Curriculum</span>
+        <h2>Everything You Need to Succeed Online</h2>
+        <p>A rigorous step-by-step masterclass covering every dimension of modern digital marketing.</p>
       </div>
-      <div class="modules">
-        <article class="module"><div class="module-icon">🧭</div><h3>Marketing foundations</h3><p>Audience research, customer journeys, brand basics and building a clear strategy.</p></article>
-        <article class="module"><div class="module-icon">🔎</div><h3>SEO & content</h3><p>Keyword research, on-page SEO, content planning and organic growth basics.</p></article>
-        <article class="module"><div class="module-icon">📱</div><h3>Social media marketing</h3><p>Platform strategy, content calendars, community building and social growth.</p></article>
-        <article class="module"><div class="module-icon">🎯</div><h3>Paid advertising</h3><p>Learn campaign fundamentals, ad creatives, targeting and budget basics.</p></article>
-        <article class="module"><div class="module-icon">✉️️</div><h3>Email marketing</h3><p>Plan useful email campaigns, grow a list and understand automation.</p></article>
-        <article class="module"><div class="module-icon">📊</div><h3>Analytics & tracking</h3><p>Read campaign data, understand key metrics and make smarter decisions.</p></article>
-        <article class="module"><div class="module-icon">🛍️</div><h3>Funnels & conversion</h3><p>Explore landing pages, lead generation and ways to improve conversions.</p></article>
-        <article class="module"><div class="module-icon">🧰</div><h3>Tools & career skills</h3><p>Get familiar with essential marketing tools, workflows and career paths.</p></article>
+      <div class="modules-grid">
+        <div class="module-card"><div class="module-num">Module 01</div><h3>Marketing Fundamentals</h3><p>Target audience mapping, brand positioning, customer persona development, and funnel architecture.</p></div>
+        <div class="module-card"><div class="module-num">Module 02</div><h3>SEO & Organic Search</h3><p>Keyword research masterclass, on-page optimization, Google Search Console, and backlink strategies.</p></div>
+        <div class="module-card"><div class="module-num">Module 03</div><h3>Content Strategy</h3><p>High-converting copywriting, content calendars, visual storytelling, and viral distribution hooks.</p></div>
+        <div class="module-card"><div class="module-num">Module 04</div><h3>Social Media Growth</h3><p>Algorithm secrets for Instagram, LinkedIn, and YouTube. Community building and organic outreach.</p></div>
+        <div class="module-card"><div class="module-num">Module 05</div><h3>Paid Media (Meta & Google)</h3><p>Campaign structure, Pixel setup, custom audiences, retargeting techniques, and budget management.</p></div>
+        <div class="module-card"><div class="module-num">Module 06</div><h3>Email & Automation</h3><p>Lead magnets, automated drip sequences, segmentation, and improving open & click-through rates.</p></div>
+        <div class="module-card"><div class="module-num">Module 07</div><h3>Web Analytics & Data</h3><p>Google Analytics 4 setup, event tracking, calculating ROAS/CAC, and building client dashboards.</p></div>
+        <div class="module-card"><div class="module-num">Module 08</div><h3>Freelancing & Agency Skills</h3><p>High-ticket client acquisition, proposal building, contract templates, and building a portfolio.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section why" id="why-us">
+  <!-- WHY US SECTION -->
+  <section class="section" id="why-us" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
     <div class="container">
-      <div class="section-head"><span class="kicker" style="color:var(--violet)">Why learn with Disa Study</span><h2>A practical way to learn a powerful skill</h2><p>Clear lessons and a complete learning path help you understand how digital marketing works from end to end.</p></div>
-      <div class="why-grid">
-        <article class="why-card"><div class="module-icon">🪜</div><h3>Learn step by step</h3><p>Start with the basics and build your understanding across key areas of digital marketing.</p></article>
-        <article class="why-card"><div class="module-icon">🧠</div><h3>Understand the whole picture</h3><p>See how content, search, social media and ads work together to reach business goals.</p></article>
-        <article class="why-card"><div class="module-icon">🚀</div><h3>Build useful skills</h3><p>Learn practical concepts you can apply to your own ideas, business or job role.</p></article>
+      <div class="section-title">
+        <span class="badge">Institute Advantage</span>
+        <h2>Why Students Choose Disa Study</h2>
       </div>
-    </div>
-  </section>
-
-  <section class="section enroll" id="enroll">
-    <div class="container enroll-grid">
-      <div>
-        <span class="kicker">Ready to begin?</span>
-        <h2>Course enrollment</h2>
-        <p style="color:var(--muted);line-height:1.7">Fill in your details below to create your Disa Study account and generate your official student profile.</p>
-        <div class="price-card">
-          <small>LIMITED-TIME ENROLLMENT PRICE</small>
-          <div class="price"><strong>₹799</strong><del style="margin-left:8px;color:#d4caff">₹4,999</del><span class="save">SAVE ₹4,200</span></div>
-          <div style="font-size:13px;margin-top:14px;display:grid;gap:6px">
-            <span>✓ Complete 8 Modules Course</span>
-            <span>✓ Instant Automated Student ID Card</span>
-            <span>✓ Official Course Completion Certificate</span>
-          </div>
+      <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:24px">
+        <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius)">
+          <h3 style="margin-bottom:10px">Practical Agency Insights</h3>
+          <p style="font-size:14px;color:var(--muted)">We don't teach obsolete theoretical slides. Every case study comes from real campaigns executed for active brands.</p>
+        </div>
+        <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius)">
+          <h3 style="margin-bottom:10px">Official Student Credential</h3>
+          <p style="font-size:14px;color:var(--muted)">Receive an automated Student Identity Card with your official Roll Number immediately upon enrollment approval.</p>
+        </div>
+        <div style="padding:24px;border:1px solid var(--border);border-radius:var(--radius)">
+          <h3 style="margin-bottom:10px">Transparent Pricing</h3>
+          <p style="font-size:14px;color:var(--muted)">Get full course access for ₹799. No recurring fees, no surprise upsells for notes, and no renewal charges.</p>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- ENROLLMENT FORM & UPI PAYMENT -->
+  <section class="section" id="enroll">
+    <div class="container enroll-grid">
+      <div>
+        <span class="badge">Admissions Open</span>
+        <h2 style="font-size:38px;margin:12px 0">Register as a Student</h2>
+        <p style="color:var(--muted);margin-bottom:24px">Create your student record. After submission, pay via UPI to unlock your course material and identity card instantly.</p>
+        <div style="background:#fff;border:1px solid var(--border);padding:24px;border-radius:var(--radius)">
+          <div style="font-weight:800;font-size:18px;margin-bottom:8px">Admission Procedure</div>
+          <ol style="padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:8px">
+            <li>Submit personal and contact details.</li>
+            <li>Scan official QR code or tap UPI link.</li>
+            <li>Submit the 12-digit UTR transaction number.</li>
+            <li>Login to access courses, study notes, and ID Card.</li>
+          </ol>
+        </div>
+      </div>
       <div class="form-card">
-        <h3>Student Registration</h3>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Already enrolled? <button id="open-login-from-form" type="button" style="background:none;border:none;color:var(--purple);font-weight:700;cursor:pointer">Student Login</button></p>
+        <h3>Enrollment Form</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Already an active student? <button id="open-login-from-form" type="button" style="background:none;border:none;color:var(--primary);font-weight:700;cursor:pointer">Student Login</button></p>
+        
         <form id="enrollment-form">
           <div class="form-grid">
-            <div class="field"><label for="name">Student Name *</label><input id="name" name="name" placeholder="Enter your full name" required minlength="2"></div>
-            <div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" name="mobile" type="tel" placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" required></div>
-            <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
-            <div class="field"><label for="city">City *</label><input id="city" name="city" placeholder="Your city" required></div>
-            <div class="field full"><label for="password">Create Password *</label><input id="password" name="password" type="password" minlength="8" placeholder="At least 8 characters" required></div>
-            <div class="field"><label for="education">Current Education / Work *</label><select id="education" name="education" required><option value="" disabled selected>Select</option><option>School student</option><option>College student</option><option>Working professional</option><option>Freelancer / Business</option><option>Other</option></select></div>
-            <div class="field"><label for="goal">Your Learning Goal *</label><select id="goal" name="goal" required><option value="" disabled selected>Select goal</option><option>Build a career</option><option>Grow my business</option><option>Personal branding</option><option>Learn a new skill</option></select></div>
+            <div class="field"><label for="name">Full Name *</label><input id="name" name="name" placeholder="E.g. Rahul Sharma" required minlength="2"></div>
+            <div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" name="mobile" type="tel" placeholder="10-digit number" pattern="[6-9][0-9]{9}" required></div>
+            <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" placeholder="rahul@example.com" required></div>
+            <div class="field"><label for="city">City *</label><input id="city" name="city" placeholder="E.g. Mumbai" required></div>
+            <div class="field full"><label for="password">Create Portal Password *</label><input id="password" name="password" type="password" minlength="8" placeholder="Minimum 8 characters" required></div>
+            <div class="field"><label for="education">Current Status *</label><select id="education" name="education" required><option value="" disabled selected>Select status</option><option>School / College Student</option><option>Working Professional</option><option>Freelancer / Agency Owner</option><option>Business Owner</option></select></div>
+            <div class="field"><label for="goal">Primary Learning Goal *</label><select id="goal" name="goal" required><option value="" disabled selected>Select objective</option><option>Job Placement / Career Shift</option><option>Freelance Client Acquisition</option><option>Business Lead Generation</option></select></div>
           </div>
-          <button class="button" type="submit" style="width:100%;margin-top:18px">Continue to Payment →</button>
+          <button class="btn btn-primary" type="submit" style="width:100%;padding:14px">Proceed to Payment (₹799) →</button>
 
-          <div class="payment-step" id="payment-step">
-            <h4>Step 2: Pay ₹799 via UPI</h4>
-            <p style="font-size:13px;color:var(--muted)">Scan QR or tap to open UPI app:</p>
-            <div style="display:flex;gap:20px;align-items:center;margin:14px 0">
-              <img id="payment-qr" class="payment-qr" alt="Disa Study UPI QR">
+          <!-- PAYMENT STEP -->
+          <div class="payment-box" id="payment-step">
+            <h4 style="font-size:16px;margin-bottom:6px">Complete Admission Payment (₹799)</h4>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Scan using Google Pay, PhonePe, Paytm or tap below:</p>
+            <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+              <img id="payment-qr" class="qr-frame" src="./qr.png" alt="Disa Study QR Code">
               <div>
-                <div class="upi-id" style="font-weight:bold;font-size:14px">samtiwari06@axl</div>
+                <div style="font-size:12px;color:var(--muted)">OFFICIAL UPI VPA:</div>
+                <div class="upi-id" style="font-weight:800;font-size:16px;color:var(--dark)">samtiwari06@axl</div>
                 <div style="display:flex;gap:8px;margin-top:10px">
-                  <a class="button" id="pay-upi" href="#">Open UPI App</a>
-                  <button type="button" class="button secondary" id="copy-upi">Copy UPI ID</button>
+                  <a class="btn btn-primary" id="pay-upi" href="#" style="padding:8px 14px;font-size:12px">Open UPI App</a>
+                  <button type="button" class="btn btn-secondary" id="copy-upi" style="padding:8px 14px;font-size:12px">Copy VPA</button>
                 </div>
               </div>
             </div>
-            <div class="field"><label for="utr">UPI UTR / Reference Number *</label><input id="utr" name="utr" placeholder="12-digit transaction number"></div>
-            <label style="display:flex;gap:8px;font-size:12px;margin:12px 0"><input type="checkbox" id="paid-confirm"> I have completed this payment successfully.</label>
-            <button class="button" id="send-whatsapp" type="button" style="width:100%">Submit UTR & Open WhatsApp →</button>
+            <div class="field" style="margin-top:16px"><label for="utr">12-Digit Transaction Reference (UTR) *</label><input id="utr" name="utr" placeholder="Enter UTR from UPI app receipt"></div>
+            <label style="display:flex;gap:8px;font-size:12px;margin:12px 0"><input type="checkbox" id="paid-confirm"> I have completed this transaction and funds are deducted.</label>
+            <button class="btn btn-primary" id="send-whatsapp" type="button" style="width:100%">Submit UTR & Open WhatsApp Verification →</button>
           </div>
           <div class="success" id="form-success"></div>
           <div class="success" id="payment-message"></div>
@@ -225,142 +349,207 @@
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <!-- FAQ SECTION -->
+  <section class="section" id="faq" style="background:#fff">
     <div class="container">
-      <div class="section-head"><span class="kicker">Got questions?</span><h2>Frequently Asked Questions</h2></div>
-      <div class="faq-list">
-        <details class="faq"><summary>What does the course cover?</summary><p>Complete digital marketing including SEO, social media, ads, content strategy, email marketing, analytics and funnels.</p></details>
-        <details class="faq"><summary>Do I get an official Student ID?</summary><p>Yes! Every enrolled student gets an automated Disa Study Digital ID Card in their dashboard.</p></details>
-        <details class="faq"><summary>How much does enrollment cost?</summary><p>The limited offer price is ₹799 only (one-time fee).</p></details>
+      <div class="section-title">
+        <span class="badge">Clear Answers</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-grid">
+        <details class="faq-box"><summary>How do I receive my Student ID Card?</summary><p>As soon as your enrollment is registered and approved, your automated digital ID card is generated inside your dashboard with a unique Roll Number.</p></details>
+        <details class="faq-box"><summary>Is the ₹799 fee a one-time payment?</summary><p>Yes, ₹799 is the complete all-inclusive fee for all 8 modules, study notes, assessments, and ID Card.</p></details>
+        <details class="faq-box"><summary>Can I access the course on mobile?</summary><p>Yes, Disa Study is fully responsive. You can learn on your smartphone, tablet, or laptop seamlessly.</p></details>
       </div>
     </div>
   </section>
 </main>
 
-<!-- STUDENT DASHBOARD -->
-<section id="dashboard-screen" class="dashboard-screen" style="display:none">
-  <div class="container">
-    <div class="dashboard-top">
-      <div><span class="kicker">Disa Study Student Portal</span><h1>Welcome, <span id="dashboard-name">Student</span></h1></div>
-      <button class="button secondary" id="signout-button" type="button">Sign Out</button>
+<!-- HIGH-PROFESSIONAL STUDENT DASHBOARD -->
+<section id="dashboard-screen" class="dash-screen">
+  <div class="dash-nav">
+    <div class="brand"><div class="brand-icon">D</div> Disa Study Portal</div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <span style="font-size:13px;font-weight:700" id="dash-user-label">Student</span>
+      <button class="btn btn-secondary" id="signout-button" type="button" style="padding:8px 14px;font-size:12px">Sign Out</button>
     </div>
-    <div id="dashboard-message" class="success"></div>
+  </div>
+  <div class="dash-body">
+    <aside class="dash-sidebar">
+      <div class="sidebar-link active" data-tab="overview">📊 Portal Overview</div>
+      <div class="sidebar-link" data-tab="modules">📚 Learning Modules</div>
+      <div class="sidebar-link" data-tab="idcard">🪪 Student ID Card</div>
+      <div class="sidebar-link" data-tab="receipt">📄 Fee Receipt</div>
+      <div class="sidebar-link" data-tab="notes">📝 Resource Notes</div>
+      <div class="sidebar-link" data-tab="support">💬 WhatsApp Mentor</div>
+    </aside>
+    <main class="dash-content">
+      <div id="dashboard-message" class="success" style="margin-bottom:18px"></div>
+      
+      <!-- TAB: OVERVIEW -->
+      <div class="content-pane active" id="pane-overview">
+        <div class="dash-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+            <span class="badge" id="status-pill">CHECKING STATUS</span>
+            <span style="font-size:12px;color:var(--muted)">Session: 2026</span>
+          </div>
+          <h2 style="font-size:26px;margin-bottom:6px">Welcome, <span id="dashboard-name">Student</span></h2>
+          <p id="status-copy" style="color:var(--muted);font-size:14px"></p>
+        </div>
 
-    <div id="student-panel">
-      <div class="status-card">
-        <span id="status-pill" class="status-pill"></span>
-        <p id="status-copy" style="margin-top:10px"></p>
-        <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
-          <!-- INSTANT WORKING ID CARD BUTTON -->
-          <button id="id-card-btn" class="button" type="button">🪪 View Student ID Card</button>
-          <button id="receipt-button" class="button secondary" type="button" style="display:none">Download Payment Receipt</button>
+        <!-- RESUME PAYMENT PANEL (IF PENDING) -->
+        <div class="dash-card" id="resume-payment-panel" style="display:none;background:#fefce8;border-color:#fef08a">
+          <h3>Complete Fee Payment</h3>
+          <p style="font-size:13px;color:#854d0e;margin:6px 0 14px">Pay ₹799 via UPI to unlock modules, resource files, and your verified Student ID Card.</p>
+          <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+            <img id="resume-payment-qr" class="qr-frame" src="./qr.png" alt="Disa Study QR">
+            <div>
+              <div style="font-size:12px;color:#854d0e">PAY TO UPI:</div>
+              <div class="upi-id" style="font-weight:800;font-size:16px">samtiwari06@axl</div>
+              <a class="btn btn-primary" id="resume-pay-upi" href="#" style="margin-top:10px;padding:8px 14px;font-size:12px">Open UPI App</a>
+            </div>
+          </div>
+          <div class="field" style="margin-top:14px"><label for="resume-utr">Enter UTR Reference *</label><input id="resume-utr" placeholder="12-digit transaction number"></div>
+          <label style="display:flex;gap:8px;font-size:12px;margin:10px 0"><input type="checkbox" id="resume-paid-confirm"> I completed this transaction</label>
+          <button class="btn btn-primary" id="resume-submit-payment" type="button">Submit Payment Details</button>
+          <div id="resume-payment-message" class="success"></div>
         </div>
       </div>
 
-      <div id="resume-payment-panel" class="status-card" style="display:none">
-        <h2>Complete your course payment</h2>
-        <p>Pay ₹799 via UPI to unlock your course and verified student status.</p>
-        <div style="display:flex;gap:18px;align-items:center;margin:14px 0">
-          <img id="resume-payment-qr" class="payment-qr" alt="Disa Study QR">
-          <div>
-            <div class="upi-id" style="font-weight:800">samtiwari06@axl</div>
-            <a id="resume-pay-upi" class="button" href="#" style="margin-top:8px">Open UPI App</a>
+      <!-- TAB: MODULES -->
+      <div class="content-pane" id="pane-modules">
+        <div class="dash-card">
+          <h2>Digital Marketing Masterclass Syllabus</h2>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:20px">Step-by-step masterclass lectures and agency frameworks.</p>
+          <div class="modules-grid" style="grid-template-columns:repeat(2, 1fr)">
+            <div class="module-card"><div class="module-num">Lecture 01</div><h3>Marketing Architecture</h3><p>Funnel setup, audience psychographics, and customer lifetime value.</p></div>
+            <div class="module-card"><div class="module-num">Lecture 02</div><h3>SEO Engine Optimization</h3><p>Search algorithms, page speed optimization, and high-authority backlinks.</p></div>
+            <div class="module-card"><div class="module-num">Lecture 03</div><h3>Copywriting & Content</h3><p>Persuasive ad copy frameworks, AIDA formula, and viral scripting.</p></div>
+            <div class="module-card"><div class="module-num">Lecture 04</div><h3>Social Media Scale</h3><p>Brand positioning across Meta, LinkedIn, and YouTube channels.</p></div>
+            <div class="module-card"><div class="module-num">Lecture 05</div><h3>Meta & Google Ads Pro</h3><p>Media buying strategies, lookalikes, and conversion rate optimization.</p></div>
+            <div class="module-card"><div class="module-num">Lecture 06</div><h3>Email Automations</h3><p>Retargeting sequences, lead scoring, and automated newsletters.</p></div>
           </div>
         </div>
-        <div class="field"><label for="resume-utr">Enter UTR Reference *</label><input id="resume-utr" placeholder="12-digit transaction number"></div>
-        <label style="display:flex;gap:8px;font-size:12px;margin:10px 0"><input type="checkbox" id="resume-paid-confirm"> I completed the payment</label>
-        <button id="resume-submit-payment" class="button" type="button">Submit Payment Details</button>
-        <div id="resume-payment-message" class="success"></div>
       </div>
 
-      <div id="course-content" style="display:none">
-        <div class="dashboard-grid">
-          <article class="dash-panel wide">
-            <h2>Course Modules</h2>
-            <div class="module-list">
-              <div><b>01 · Marketing Foundations</b><span>Strategy & Target Audience</span></div>
-              <div><b>02 · SEO & Organic Search</b><span>Keywords & On-page Optimization</span></div>
-              <div><b>03 · Content Marketing</b><span>Storytelling & Calendars</span></div>
-              <div><b>04 · Social Media Growth</b><span>Campaigns & Brand Reach</span></div>
-              <div><b>05 · Paid Advertising</b><span>Meta & Google Ads Setup</span></div>
-              <div><b>06 · Email Marketing</b><span>Funnels & Automation</span></div>
-              <div><b>07 · Analytics & Tracking</b><span>ROI & Conversion Tracking</span></div>
-              <div><b>08 · Career & Freelancing</b><span>Client Acquisition & Portfolios</span></div>
+      <!-- TAB: STUDENT ID CARD -->
+      <div class="content-pane" id="pane-idcard">
+        <div class="dash-card" style="text-align:center">
+          <h2>Official Student Identity Card</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Generated automatically from your admission credentials.</p>
+          
+          <div class="id-card-render">
+            <div class="id-card-top">
+              <div style="font-weight:900;font-size:18px;letter-spacing:0.5px">DISA STUDY</div>
+              <div style="font-size:11px;opacity:0.85">DEPARTMENT OF DIGITAL EDUCATION</div>
             </div>
-          </article>
-          <article class="dash-panel">
-            <h2>Study Notes</h2>
-            <p>Download official starter notes prepared by Disa Study mentors.</p>
-            <button id="download-notes" class="button" type="button">Download Notes (TXT)</button>
-          </article>
-          <article class="dash-panel">
-            <h2>Support & Mentorship</h2>
-            <p>Direct WhatsApp helpdesk for your queries.</p>
-            <a class="button" href="https://wa.me/919630958789" target="_blank">Chat on WhatsApp ↗</a>
-          </article>
+            <div class="id-card-avatar" id="id-avatar">S</div>
+            <h3 id="id-name" style="font-size:20px">Student Name</h3>
+            <span style="display:inline-block;background:#ecfdf5;color:#047857;font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;margin-top:4px">ENROLLED SCHOLAR</span>
+            
+            <div class="id-details-table">
+              <div class="id-row"><span>Roll Number:</span><strong id="id-roll">DS-2026-001</strong></div>
+              <div class="id-row"><span>Course:</span><strong>Digital Marketing Masterclass</strong></div>
+              <div class="id-row"><span>Contact:</span><strong id="id-mobile">+91 00000 00000</strong></div>
+              <div class="id-row"><span>Email:</span><strong id="id-email">student@disastudy.com</strong></div>
+              <div class="id-row"><span>Location:</span><strong id="id-city">India</strong></div>
+              <div class="id-row"><span>Valid Through:</span><strong>Academic Year 2026</strong></div>
+            </div>
+            <div style="padding:12px;background:#f8fafc;border-top:1px dashed #cbd5e1;font-size:10px;color:var(--muted)">
+              Official Digital Credential · Disa Study Educational Wing
+            </div>
+          </div>
+          <div style="margin-top:20px">
+            <button class="btn btn-primary" onclick="window.print()" type="button">Print ID Card / Save PDF</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="admin-panel" style="display:none">
-      <div class="status-card">
-        <h2>Disa Study Admin Panel</h2>
-        <div id="admin-requests"></div>
+      <!-- TAB: RECEIPT -->
+      <div class="content-pane" id="pane-receipt">
+        <div class="dash-card">
+          <h2>Official Admission Receipt</h2>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:18px">Print or download your digital fee payment voucher.</p>
+          <button class="btn btn-primary" id="receipt-button" type="button">Download Payment Receipt (PDF)</button>
+        </div>
       </div>
-    </div>
+
+      <!-- TAB: NOTES -->
+      <div class="content-pane" id="pane-notes">
+        <div class="dash-card">
+          <h2>Masterclass Resource Notes</h2>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:18px">Download comprehensive cheat-sheets, SEO checklists, and ad swipe files.</p>
+          <button class="btn btn-primary" id="download-notes" type="button">Download Starter Study Package</button>
+        </div>
+      </div>
+
+      <!-- TAB: SUPPORT -->
+      <div class="content-pane" id="pane-support">
+        <div class="dash-card">
+          <h2>Direct Faculty & Student Helpline</h2>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:18px">Facing difficulties with course lectures or verification? Speak directly with our mentor desk.</p>
+          <a class="btn btn-primary" href="https://wa.me/919630958789" target="_blank">Connect on WhatsApp (+91 96309 58789) ↗</a>
+        </div>
+      </div>
+
+      <!-- ADMIN PANEL -->
+      <div id="admin-panel" style="display:none">
+        <div class="dash-card">
+          <h2>Disa Study Admin Panel</h2>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:14px">Pending UTR Verification Queue</p>
+          <div id="admin-requests"></div>
+        </div>
+      </div>
+    </main>
   </div>
 </section>
 
-<!-- STUDENT ID CARD MODAL (Direct in-page, no popup blocker!) -->
-<div id="id-card-modal">
-  <div class="id-modal-box">
-    <div class="id-head-tag">
-      <div style="font-size:18px;font-weight:900">DISA STUDY</div>
-      <div style="font-size:11px;opacity:0.8;text-transform:uppercase">Official Student Identity Card</div>
-    </div>
-    <div class="id-card-view">
-      <div class="id-user-avatar" id="modal-id-avatar">S</div>
-      <h3 id="modal-id-name" style="margin:8px 0 2px;font-size:19px">Student Name</h3>
-      <span style="font-size:10px;font-weight:800;background:#e9fbf0;color:#1d784a;padding:3px 8px;border-radius:99px">VERIFIED STUDENT</span>
-      
-      <div class="id-details-box">
-        <div><span style="color:#777">Student ID:</span><b id="modal-id-roll">DS-982314</b></div>
-        <div><span style="color:#777">Course:</span><b>Digital Marketing</b></div>
-        <div><span style="color:#777">Mobile:</span><b id="modal-id-mobile">+91 96309 58789</b></div>
-        <div><span style="color:#777">Email:</span><b id="modal-id-email">student@example.com</b></div>
-        <div><span style="color:#777">City:</span><b id="modal-id-city">City</b></div>
-      </div>
-      
-      <div style="display:flex;gap:10px;justify-content:center">
-        <button class="button" onclick="window.print()" type="button">Print ID Card</button>
-        <button class="button secondary" id="close-id-modal" type="button">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- LOGIN MODAL -->
-<div id="login-modal" class="login-backdrop">
-  <div class="login-card">
-    <button id="login-close" style="float:right;border:none;background:none;font-size:22px;cursor:pointer">×</button>
-    <div style="font-weight:900;color:var(--purple)">Disa Study</div>
-    <h2 style="margin:8px 0 16px">Student Login</h2>
+<div id="login-modal" class="modal-backdrop">
+  <div class="modal-content">
+    <button class="modal-close" id="login-close">×</button>
+    <div class="brand" style="margin-bottom:8px"><div class="brand-icon">D</div> Disa Study</div>
+    <h3 style="font-size:22px;margin-bottom:4px">Student Portal Login</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Access your modules, assessments, and ID Card.</p>
     <form id="login-form">
-      <div class="field" style="margin-bottom:12px"><label>Email Address</label><input id="login-email" type="email" required></div>
-      <div class="field" style="margin-bottom:16px"><label>Password</label><input id="login-password" type="password" required></div>
+      <div class="field" style="margin-bottom:12px"><label>Email Address</label><input id="login-email" type="email" placeholder="student@example.com" required></div>
+      <div class="field" style="margin-bottom:16px"><label>Portal Password</label><input id="login-password" type="password" required></div>
       <div id="login-message" class="success"></div>
-      <button class="button" type="submit" style="width:100%">Log in to Dashboard</button>
+      <button class="btn btn-primary" type="submit" style="width:100%">Sign In to Portal</button>
     </form>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <div style="font-weight:900;font-size:18px">Disa Study</div>
-      <small style="color:#9e9cb2">© <span id="year"></span> Disa Study. All rights reserved.</small>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:12px"><div class="brand-icon">D</div> Disa Study</div>
+        <p style="font-size:14px;color:#94a3b8;max-width:320px">Empowering career-oriented students and business professionals with modern digital skillsets.</p>
+      </div>
+      <div>
+        <h4>Course Syllabus</h4>
+        <ul>
+          <li>Marketing Fundamentals</li>
+          <li>Search Engine Optimization</li>
+          <li>Meta & Google Media Buying</li>
+          <li>Web Analytics & Funnels</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Help & Support</h4>
+        <ul>
+          <li>Official UPI: samtiwari06@axl</li>
+          <li>WhatsApp: +91 96309 58789</li>
+          <li>Accreditation: Disa Educational Wing</li>
+        </ul>
+      </div>
     </div>
-    <div style="font-size:13px;color:#d1cfde">Support: +91 96309 58789</div>
+    <div class="footer-bot">
+      <div>© <span id="year"></span> Disa Study. All rights reserved.</div>
+      <div>Official Ed-Tech Training Platform</div>
+    </div>
   </div>
 </footer>
 
