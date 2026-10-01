@@ -15,7 +15,7 @@ const form = $("#enrollment-form");
 const paymentStep = $("#payment-step");
 const loginModal = $("#login-modal");
 const dashboard = $("#dashboard-screen");
-const ENROLLMENT_DRAFT_KEY = "disastudy-v4-draft";
+const ENROLLMENT_DRAFT_KEY = "disastudy-v5-draft";
 const enrollmentDraftFields = ["name", "mobile", "email", "city", "education", "goal"];
 
 function buildUpiUri() {
@@ -24,7 +24,7 @@ function buildUpiUri() {
     pn: "Disa Study",
     am: "799.00",
     cu: "INR",
-    tn: "Disa Study Course Admission"
+    tn: "Disa Study 20 Modules Course"
   };
   return `upi://pay?${Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&")}`;
 }
@@ -36,7 +36,6 @@ function renderPaymentOptions() {
     if (link) link.href = uri;
   });
 
-  // Local image priority with auto live QR fallback
   ["#payment-qr", "#resume-payment-qr"].forEach((selector) => {
     const img = $(selector);
     if (img) {
@@ -55,7 +54,7 @@ function renderPaymentOptions() {
 $("#year").textContent = new Date().getFullYear();
 renderPaymentOptions();
 
-// LEFT-SIDE OFF-CANVAS DRAWER LOGIC
+// LEFT-SIDE OFF-CANVAS DRAWER LOGIC (FOR BOTH WEBSITE & DASHBOARD)
 const drawer = $("#left-drawer");
 const backdrop = $("#drawer-backdrop");
 function openDrawer() {
@@ -68,6 +67,7 @@ function closeDrawer() {
 }
 
 $("#left-drawer-open")?.addEventListener("click", openDrawer);
+$("#dash-drawer-open")?.addEventListener("click", openDrawer);
 $("#drawer-close-btn")?.addEventListener("click", closeDrawer);
 backdrop?.addEventListener("click", closeDrawer);
 document.querySelectorAll(".drawer-link").forEach((link) => {
@@ -203,7 +203,7 @@ async function submitPaymentProof(utrInput, paidInput, messageSelector, button) 
       "Student Name: " + (values.name || user.displayName),
       "Mobile: " + (values.mobile || ""),
       "Email: " + (values.email || user.email),
-      "Course: Digital Marketing Masterclass",
+      "Course: 20 Modules Digital & AI Marketing",
       "Amount Paid: ₹799",
       "Transaction UTR: " + utrInput.value.trim(),
       "",
@@ -287,7 +287,7 @@ function renderStudentStatus(payment) {
 
   $("#status-pill").textContent = approved ? "VERIFIED SCHOLAR" : awaiting ? "PAYMENT PENDING" : pending ? "IN VERIFICATION" : "REGISTERED";
   $("#status-copy").textContent = approved 
-    ? "Your admission is approved. All 8 masterclass modules, study notes, and your verified Student ID Card are active."
+    ? "Your admission is approved. All 20 digital & AI modules, study notes, and your verified Student ID Card are active."
     : awaiting 
     ? "Complete your ₹799 UPI transfer below to unlock the curriculum and download your Student ID Card."
     : "Your transaction UTR is submitted. Disa Study desk will approve your portal access shortly.";
@@ -295,6 +295,38 @@ function renderStudentStatus(payment) {
   $("#resume-payment-panel").style.display = awaiting ? "block" : "none";
   $("#receipt-button").style.display = approved ? "inline-flex" : "none";
   $("#receipt-button").onclick = () => downloadInvoice(payment);
+
+  // 3-Month Final Exam Window Logic
+  const approvalDate = toDate(payment?.approvedAt);
+  const examUnlockDate = approvalDate ? addMonths(approvalDate, 3) : null;
+  const examNode = $("#final-exam-status");
+
+  if (!approved) {
+    examNode.textContent = "The final exam unlocks 3 months after Disa Study approves your payment.";
+  } else if (!examUnlockDate) {
+    examNode.textContent = "Your payment is approved. Disa Study desk will confirm your final exam schedule.";
+  } else if (Date.now() < examUnlockDate.getTime()) {
+    examNode.textContent = `Your final exam opens on ${formatDate(examUnlockDate)} (exactly three months after payment approval). Disa Study will publish the question sets before this date.`;
+  } else {
+    examNode.textContent = "Your final exam window is officially open! The questions will appear here once Disa Study publishes the exam session.";
+  }
+}
+
+function toDate(v) {
+  if (v?.toDate) return v.toDate();
+  if (!v) return null;
+  const d = new Date(v);
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function addMonths(d, m) {
+  const res = new Date(d);
+  res.setMonth(res.getMonth() + m);
+  return res;
+}
+
+function formatDate(d) {
+  return new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "long", year: "numeric" }).format(d);
 }
 
 // DASHBOARD TAB SWITCHING
@@ -308,7 +340,19 @@ document.querySelectorAll(".dash-tab-btn").forEach((btn) => {
   });
 });
 
-// ULTRA-PREMIUM TAX INVOICE GENERATOR
+// INTERACTIVE WEEKLY QUIZ
+$("#submit-quiz-btn")?.addEventListener("click", () => {
+  let score = 0;
+  if ($('input[name="q1"]:checked')?.value === "A") score++;
+  if ($('input[name="q2"]:checked')?.value === "A") score++;
+  if ($('input[name="q3"]:checked')?.value === "A") score++;
+  
+  const resultNode = $("#quiz-result");
+  resultNode.style.display = "block";
+  resultNode.textContent = `You scored ${score} out of 3! Correct answers reviewed.`;
+});
+
+// CORPORATE TAX INVOICE GENERATOR
 function downloadInvoice(payment) {
   const invoiceNo = `INV-DDA-${String(payment.uid || "2026").slice(-8).toUpperCase()}`;
   const invoiceDate = new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "long", year: "numeric" }).format(new Date());
@@ -386,8 +430,8 @@ function downloadInvoice(payment) {
         <tbody>
           <tr>
             <td>
-              <strong>Complete Digital Marketing Masterclass (8 Modules)</strong>
-              <div style="font-size:11px;color:#64748b;margin-top:4px">Includes Automated Digital Student ID Card & Official Study Material</div>
+              <strong>Complete Digital & AI Marketing Masterclass (20 Modules)</strong>
+              <div style="font-size:11px;color:#64748b;margin-top:4px">Includes Automated Digital Student ID Card, Quizzes & Official Exam Window</div>
             </td>
             <td>999293</td>
             <td style="text-align:right">₹677.12</td>
@@ -435,11 +479,12 @@ function escapeHtml(val = "") {
 
 // NOTES DOWNLOAD
 $("#download-notes")?.addEventListener("click", () => {
-  const notes = "DISA STUDY · OFFICIAL DIGITAL MARKETING STARTER KIT\n\n" +
+  const notes = "DISA STUDY · COMPLETE DIGITAL & AI MARKETING RESOURCE KIT\n\n" +
     "1. AUDIENCE ARCHITECTURE: Define pain points, demographic profile, and core desires.\n" +
     "2. SEARCH OPTIMIZATION: Prioritize long-tail intent, optimize title tags, clean schema.\n" +
-    "3. MEDIA BUYING: Test 3 ad variations with minimum 50 conversions for machine learning optimization.\n" +
-    "4. RETARGETING: Re-engage visitors who visited checkout within the last 7 days.\n\n" +
+    "3. AI PROMPTING: Use structured roles, objective context, negative constraints, and output format.\n" +
+    "4. MEDIA BUYING: Test 3 ad variations with minimum 50 conversions for machine learning optimization.\n" +
+    "5. RETARGETING: Re-engage visitors who visited checkout within the last 7 days.\n\n" +
     "Disa Study — Knowledge Wing. All rights reserved.";
   const blob = new Blob([notes], { type: "text/plain;charset=utf-8" });
   const url = URL.createObjectURL(blob);
