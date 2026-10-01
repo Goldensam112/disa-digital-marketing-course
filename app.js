@@ -6,7 +6,7 @@ import { firebaseConfig } from "./firebase-config.js";
 const $ = (selector) => document.querySelector(selector);
 const configReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
 let auth, db, currentPayment;
-let paymentSettings = { upiId: "samtiwar06@axl", qrDataUrl: "" };
+const paymentSettings = { upiId: "samtiwar06@axl", qrPath: "./qr.png" };
 let isSigningUp = false;
 const form = $("#enrollment-form");
 const paymentStep = $("#payment-step");
@@ -23,7 +23,7 @@ function renderPaymentOptions() {
   ["#pay-upi", "#resume-pay-upi"].forEach((selector) => { const link = $(selector); if (link) link.href = uri; });
   ["#payment-qr", "#resume-payment-qr"].forEach((selector) => {
     const image = $(selector);
-    if (image) image.src = paymentSettings.qrDataUrl || `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=${encodeURIComponent(uri)}`;
+    if (image) image.src = paymentSettings.qrPath;
   });
   document.querySelectorAll(".upi-id").forEach((node) => { node.textContent = paymentSettings.upiId; });
 }
@@ -109,10 +109,6 @@ if (!configReady) {
   const app = initializeApp(firebaseConfig);
   auth = getAuth(app);
   db = getFirestore(app);
-  getDoc(doc(db, "paymentSettings", "main")).then((snap) => {
-    if (snap.exists()) paymentSettings = { ...paymentSettings, ...snap.data() };
-    renderPaymentOptions();
-  }).catch((error) => console.warn("Could not load payment settings", error));
 }
 
 $("#enrollment-form").addEventListener("submit", async (event) => {
@@ -283,9 +279,6 @@ function downloadReceipt(payment) {
 function escapeHtml(value = "") { return String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]); }
 
 async function renderAdmin() {
-  $("#payment-upi-id").value = paymentSettings.upiId;
-  const qrPreview = $("#payment-qr-preview");
-  if (paymentSettings.qrDataUrl) { qrPreview.src = paymentSettings.qrDataUrl; qrPreview.style.display = "block"; }
   const list = $("#admin-requests"); list.innerHTML = "<p>Loading payment requests…</p>";
   try {
     const requests = await getDocs(query(collection(db, "payments"), where("status", "==", "payment_submitted")));
@@ -302,40 +295,6 @@ async function renderAdmin() {
     });
   } catch (error) { list.textContent = friendlyError(error); }
 }
-
-let selectedQrDataUrl = "";
-const qrUpload = $("#payment-qr-upload");
-qrUpload?.addEventListener("change", () => {
-  const file = qrUpload.files?.[0];
-  selectedQrDataUrl = "";
-  if (!file) return;
-  if (!/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 500 * 1024) {
-    qrUpload.value = "";
-    showMessage("#payment-settings-message", "Choose a PNG, JPG or WebP image smaller than 500 KB.", true);
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = () => {
-    selectedQrDataUrl = String(reader.result || "");
-    const preview = $("#payment-qr-preview"); preview.src = selectedQrDataUrl; preview.style.display = "block";
-    $("#payment-settings-message").style.display = "none";
-  };
-  reader.onerror = () => showMessage("#payment-settings-message", "Could not read this image. Please choose it again.", true);
-  reader.readAsDataURL(file);
-});
-$("#save-payment-settings")?.addEventListener("click", async (event) => {
-  const upiId = $("#payment-upi-id").value.trim();
-  if (!/^[\w.-]{2,256}@[\w.-]{2,64}$/.test(upiId)) { showMessage("#payment-settings-message", "Enter a valid UPI ID, for example name@bank.", true); return; }
-  const button = event.currentTarget; setBusy(button, true, "Save payment method");
-  try {
-    const nextSettings = { upiId, qrDataUrl: selectedQrDataUrl || paymentSettings.qrDataUrl };
-    await setDoc(doc(db, "paymentSettings", "main"), { ...nextSettings, updatedAt: serverTimestamp() });
-    paymentSettings = nextSettings; selectedQrDataUrl = ""; qrUpload.value = ""; renderPaymentOptions();
-    const preview = $("#payment-qr-preview"); preview.src = paymentSettings.qrDataUrl; preview.style.display = paymentSettings.qrDataUrl ? "block" : "none";
-    showMessage("#payment-settings-message", "Payment method saved. The enrollment and student login QR are updated.");
-  } catch (error) { showMessage("#payment-settings-message", friendlyError(error), true); }
-  finally { setBusy(button, false); }
-});
 
 $("#signout-button").addEventListener("click", () => signOut(auth));
 if (configReady) onAuthStateChanged(auth, (user) => {
