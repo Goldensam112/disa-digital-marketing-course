@@ -8,7 +8,7 @@ const configReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("
 let auth, db, currentPayment;
 
 // NOTE: Apni real UPI ID yahan replace karein
-const paymentSettings = { upiId: "samtiwar06@axl", qrPath: "./qr.png" };
+const paymentSettings = { upiId: "samtiwari06@axl", qrPath: "./qr.png" };
 let isSigningUp = false;
 const form = $("#enrollment-form");
 const paymentStep = $("#payment-step");
