@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Disa Study | Premier Digital Learning Institute</title>
+<title>Disa Study | India's Leading Digital & AI Marketing Institute</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 :root {
   --primary: #4f46e5;
   --primary-dark: #3730a3;
-  --primary-glow: rgba(79, 70, 229, 0.25);
+  --primary-glow: rgba(79, 70, 229, 0.3);
   --accent: #10b981;
   --accent-glow: rgba(16, 185, 129, 0.25);
   --dark: #090d16;
@@ -31,81 +31,79 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--slate); line-height: 1.5; overflow-x: hidden; width: 100%; }
 a { text-decoration: none; color: inherit; }
-button, input, select, textarea { font-family: inherit; font-size: 16px; }
+button, input, select, textarea { font-family: inherit; font-size: 15px; }
 .container { width: min(1200px, 100% - 24px); margin: auto; }
 
-/* ANNOUNCEMENT BANNER */
-.top-banner { background: linear-gradient(90deg, #1e1b4b, #4338ca, #065f46); color: #fff; font-size: 11px; font-weight: 800; padding: 7px 12px; text-align: center; letter-spacing: 0.3px; }
+.top-banner { background: linear-gradient(90deg, #1e1b4b, #4338ca, #065f46); color: #fff; font-size: 11px; font-weight: 800; padding: 8px 12px; text-align: center; letter-spacing: 0.3px; }
 
-/* HEADER WITH LEFT HAMBURGER BUTTON */
-.header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-.nav-bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+/* HEADER WITH LEFT DRAWER BUTTON */
+.header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; height: 66px; }
 .nav-left { display: flex; align-items: center; gap: 12px; }
 
-/* 3-LINE LEFT DRAWER BUTTON */
 .drawer-trigger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 10px; transition: 0.2s; }
 .drawer-trigger:active { transform: scale(0.95); background: #e2e8f0; }
-.drawer-trigger span { display: block; width: 100%; height: 2px; background: var(--dark); border-radius: 2px; }
+.drawer-trigger span { display: block; width: 100%; height: 2.5px; background: var(--dark); border-radius: 2px; }
 
 .brand { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 19px; color: var(--dark); letter-spacing: -0.5px; }
-.brand-mark { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), #818cf8); color: #fff; display: grid; place-items: center; font-size: 18px; font-family: 'Space Grotesk', sans-serif; font-weight: 800; box-shadow: 0 4px 12px var(--primary-glow); }
+.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), #818cf8); color: #fff; display: grid; place-items: center; font-size: 19px; font-family: 'Space Grotesk', sans-serif; font-weight: 800; box-shadow: 0 4px 12px var(--primary-glow); }
 
 .nav-links-desktop { display: flex; align-items: center; gap: 24px; list-style: none; font-size: 14px; font-weight: 700; color: #475569; }
 .nav-links-desktop a:hover { color: var(--primary); }
 .nav-actions { display: flex; align-items: center; gap: 8px; }
 
-/* BUTTONS */
 .btn { border: 0; border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; white-space: nowrap; }
 .btn-primary { background: linear-gradient(135deg, var(--primary), #6366f1); color: #fff; box-shadow: 0 6px 18px var(--primary-glow); }
 .btn-primary:active { transform: scale(0.97); }
 .btn-secondary { background: #f1f5f9; color: var(--slate); border: 1px solid var(--border); }
 .btn-secondary:active { background: #e2e8f0; }
 
-/* LEFT-SIDE SLIDING DRAWER MENU */
+/* SHARED SLIDING DRAWER MENU */
 .drawer-backdrop { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.65); backdrop-filter: blur(4px); z-index: 998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .drawer-backdrop.active { opacity: 1; pointer-events: auto; }
-.left-drawer { position: fixed; top: 0; left: 0; bottom: 0; width: min(300px, 82vw); background: #ffffff; z-index: 999; box-shadow: 12px 0 35px rgba(0,0,0,0.18); transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; padding: 20px; overflow-y: auto; }
+.left-drawer { position: fixed; top: 0; left: 0; bottom: 0; width: min(310px, 84vw); background: #ffffff; z-index: 999; box-shadow: 12px 0 35px rgba(0,0,0,0.18); transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; padding: 20px; overflow-y: auto; }
 .left-drawer.active { transform: translateX(0); }
-.drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
 .drawer-close { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); font-size: 20px; display: grid; place-items: center; cursor: pointer; }
 .drawer-menu { display: flex; flex-direction: column; gap: 6px; list-style: none; }
 .drawer-menu a, .drawer-menu button { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; font-size: 14px; font-weight: 700; color: var(--slate); background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; }
 .drawer-menu a:active, .drawer-menu button:active { background: #eef2ff; color: var(--primary); }
 .drawer-footer { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); }
 
-/* HERO SECTION */
-.hero { padding: 40px 0 55px; position: relative; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+/* HERO */
+.hero { padding: 45px 0 55px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; }
 .pill-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; background: #eef2ff; color: var(--primary); font-size: 11px; font-weight: 800; border: 1px solid #c7d2fe; text-transform: uppercase; margin-bottom: 14px; }
 .hero h1 { font-size: clamp(30px, 7vw, 54px); font-weight: 900; line-height: 1.15; letter-spacing: -1.2px; color: var(--dark); margin-bottom: 14px; }
 .hero h1 span { background: linear-gradient(135deg, var(--primary), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero p { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
 
-/* PRICING CARD */
+/* PRICING */
 .hero-price-card { background: #fff; border-radius: var(--radius); padding: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-md); position: relative; }
 .badge-discount { position: absolute; top: -11px; right: 20px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; }
 .price-tag { font-size: 40px; font-weight: 900; font-family: 'Space Grotesk', sans-serif; color: var(--dark); margin: 6px 0; display: flex; align-items: baseline; gap: 8px; }
 .price-tag del { font-size: 16px; color: var(--muted); font-weight: 600; }
 .card-perks { list-style: none; display: grid; gap: 8px; font-size: 12px; font-weight: 700; color: #475569; margin: 16px 0; }
 
-/* TRUST STRIP */
 .trust-strip { background: var(--dark-surface); color: #fff; padding: 18px 0; }
 .strip-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; text-align: center; }
 .strip-items h4 { font-size: 13px; font-weight: 800; color: #f8fafc; }
 .strip-items p { font-size: 11px; color: #94a3b8; }
 
-/* MODULES SECTION */
+/* 20 MODULES GRID */
 .section { padding: 60px 0; }
-.section-head { text-align: center; max-width: 650px; margin: 0 auto 35px; }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 35px; }
 .section-head h2 { font-size: clamp(26px, 5vw, 36px); font-weight: 900; letter-spacing: -1px; margin: 8px 0; }
 .modules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.module-box { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; transition: 0.2s; }
+.module-box { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; transition: 0.2s; position: relative; }
 .module-tag { font-size: 10px; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.module-box.ai-box { border-color: #c7d2fe; background: linear-gradient(180deg, #ffffff 0%, #faf8ff 100%); }
+.module-box.ai-box .module-tag { color: #7c3aed; }
 .module-box h3 { font-size: 15px; font-weight: 800; margin: 6px 0; color: var(--dark); }
 .module-box p { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
-/* ENROLLMENT FORM & UPI PAYMENT */
+/* ENROLLMENT FORM & UPI */
 .enroll-wrap { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 32px; align-items: start; }
 .form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-md); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
@@ -128,7 +126,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
 .faq-card[open] summary:after { content: "−"; }
 .faq-card p { margin-top: 8px; font-size: 13px; color: var(--muted); }
 
-/* FULL SCREEN STUDENT DASHBOARD */
+/* DASHBOARD MODE & DUAL SIDEBAR */
 .dashboard-mode > .top-banner, .dashboard-mode > header, .dashboard-mode > main, .dashboard-mode > footer { display: none !important; }
 .dash-screen { min-height: 100vh; background: #f1f5f9; display: none; }
 .dash-topbar { height: 64px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 18px; position: sticky; top: 0; z-index: 50; }
@@ -141,22 +139,22 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
 .dash-pane.active { display: block; }
 .widget-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); margin-bottom: 18px; }
 
-/* AUTOMATED ULTRA-REALISTIC STUDENT ID CARD */
+/* HOLOGRAPHIC ID CARD */
 .id-badge-canvas { width: min(340px, 100%); margin: auto; background: #ffffff; border-radius: 18px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: var(--shadow-md); position: relative; }
-.id-band { background: linear-gradient(135deg, #312e81, #4f46e5); color: #fff; padding: 16px; text-align: center; }
-.id-band h4 { font-size: 17px; font-weight: 900; letter-spacing: 0.5px; }
-.id-band span { font-size: 10px; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; }
+.id-band { background: linear-gradient(135deg, #1e1b4b, #4338ca); color: #fff; padding: 16px; text-align: center; }
 .id-avatar-circle { width: 76px; height: 76px; border-radius: 50%; background: #e0e7ff; color: var(--primary); font-size: 30px; font-weight: 900; display: grid; place-items: center; margin: -38px auto 8px; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
-.id-body { padding: 8px 16px 18px; text-align: center; }
 .id-student-name { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 2px; }
-.id-tag-verified { display: inline-block; background: #ecfdf5; color: #047857; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 99px; }
 .id-info-grid { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; margin: 14px 0; text-align: left; font-size: 11px; display: grid; gap: 6px; }
 .id-info-row { display: flex; justify-content: space-between; }
 .id-info-row span { color: var(--muted); font-weight: 600; }
 .id-info-row strong { color: var(--dark); font-weight: 700; }
 .id-barcode { height: 26px; background: repeating-linear-gradient(90deg, #1e293b, #1e293b 2px, transparent 2px, transparent 5px, #1e293b 5px, #1e293b 8px); opacity: 0.8; margin-top: 8px; }
 
-/* MODALS */
+/* QUIZ STYLES */
+.quiz-item { border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 12px; background: #f8fafc; }
+.quiz-item p { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.quiz-opt { display: flex; align-items: center; gap: 8px; font-size: 12px; margin: 4px 0; color: #475569; }
+
 .modal-overlay { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.65); backdrop-filter: blur(4px); z-index: 999; display: none; place-items: center; padding: 16px; }
 .modal-box { background: #fff; width: min(400px, 100%); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-md); position: relative; }
 .modal-close { position: absolute; right: 16px; top: 16px; border: 0; background: none; font-size: 22px; cursor: pointer; color: var(--muted); }
@@ -164,13 +162,11 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
 .success { display: none; margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
 .success.error { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
 
-/* FOOTER */
 .footer { background: var(--dark); color: #fff; padding: 50px 0 25px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; margin-bottom: 25px; }
 .footer-grid h4 { font-size: 14px; margin-bottom: 12px; color: #f8fafc; }
 .footer-grid ul { list-style: none; display: grid; gap: 6px; font-size: 12px; color: #94a3b8; }
 
-/* MOBILE RESPONSIVE MEDIA QUERIES */
 @media(max-width: 900px) {
   .hero-grid, .enroll-wrap, .dash-layout { grid-template-columns: 1fr; }
   .modules-grid { grid-template-columns: repeat(2, 1fr); }
@@ -196,14 +192,13 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
 <body>
 
 <div class="top-banner">
-  🔥 ADMISSION OPEN: Digital Marketing Masterclass + Automated Student ID Card for just ₹799
+  🔥 ADMISSION 2026: 20 Digital & AI Marketing Modules + Automated Student ID Card for just ₹799
 </div>
 
-<!-- HEADER WITH 3-LINE MENU ON LEFT -->
+<!-- MAIN WEBSITE HEADER WITH 3-LINE DRAWER ON LEFT -->
 <header class="header">
   <div class="container nav-bar">
     <div class="nav-left">
-      <!-- 3-LINE HAMBURGER TRIGGER -->
       <button class="drawer-trigger" id="left-drawer-open" aria-label="Open Navigation Menu">
         <span></span>
         <span></span>
@@ -216,7 +211,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
     </div>
 
     <ul class="nav-links-desktop">
-      <li><a href="#course">Curriculum</a></li>
+      <li><a href="#course">Curriculum (20 Modules)</a></li>
       <li><a href="#why-us">Why Disa</a></li>
       <li><a href="#faq">FAQs</a></li>
       <li><a href="#enroll">Student Admission</a></li>
@@ -229,7 +224,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
   </div>
 </header>
 
-<!-- LEFT-SIDE SLIDING DRAWER MENU (OFF-CANVAS) -->
+<!-- SLIDING DRAWER MENU (SHARED BETWEEN WEBSITE & DASHBOARD) -->
 <div class="drawer-backdrop" id="drawer-backdrop"></div>
 <aside class="left-drawer" id="left-drawer">
   <div class="drawer-header">
@@ -237,11 +232,11 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
     <button class="drawer-close" id="drawer-close-btn" aria-label="Close Menu">×</button>
   </div>
   <ul class="drawer-menu">
-    <li><a href="#course" class="drawer-link">📚 Course Syllabus (8 Modules)</a></li>
+    <li><a href="#course" class="drawer-link">📚 All 20 Course Modules</a></li>
     <li><a href="#why-us" class="drawer-link">⭐ Why Disa Study</a></li>
     <li><a href="#enroll" class="drawer-link">📝 Admission & Payment</a></li>
     <li><a href="#faq" class="drawer-link">❓ Questions & Answers</a></li>
-    <li><button type="button" id="drawer-login-btn">🔐 Student Portal Login</button></li>
+    <li><button type="button" id="drawer-login-btn">🔐 Open Student Dashboard</button></li>
     <li><a href="https://wa.me/919630958789" target="_blank">💬 WhatsApp Help Desk</a></li>
   </ul>
   <div class="drawer-footer">
@@ -255,25 +250,25 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="pill-badge">✦ Official Ed-Tech Portal 2026</div>
-        <h1>Practical Digital Marketing with <span>Disa Study</span></h1>
-        <p>Master SEO, Google & Meta Ads, Content Strategy, and Analytics. Receive an automated verified student identity card and official course invoice.</p>
+        <div class="pill-badge">✦ 20 Advanced Modules with AI</div>
+        <h1>Next-Gen Digital & AI Marketing at <span>Disa Study</span></h1>
+        <p>Master Performance Marketing, SEO, ChatGPT & Midjourney Marketing Automations. Includes automated verified student identity card, weekly mock tests, and final exam certification.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#enroll">Enroll Now for ₹799 →</a>
-          <a class="btn btn-secondary" href="#course">View 8 Modules ↓</a>
+          <a class="btn btn-secondary" href="#course">Explore 20 Modules ↓</a>
         </div>
       </div>
       <div>
         <div class="hero-price-card">
           <div class="badge-discount">84% Discount</div>
-          <span style="font-size:11px;font-weight:800;color:var(--muted)">ONE-TIME ALL INCLUSIVE FEE</span>
+          <span style="font-size:11px;font-weight:800;color:var(--muted)">COMPLETE ACADEMIC ACCESS</span>
           <div class="price-tag">₹799 <del>₹4,999</del></div>
-          <p style="font-size:12px;color:var(--muted)">No recurring subscription. Complete lifetime portal access.</p>
+          <p style="font-size:12px;color:var(--muted)">One-time transparent fee. Complete masterclass access.</p>
           <ul class="card-perks">
-            <li>✔ Full 8-Module Agency Syllabus</li>
-            <li>✔ Instant Automated Student ID Card with Roll Number</li>
-            <li>✔ Official Tax Invoice / Payment Voucher</li>
-            <li>✔ Dedicated WhatsApp Mentor Support</li>
+            <li>✔ Full 20-Module Roadmap (AI & Performance)</li>
+            <li>✔ Automated Student ID Card with Roll Number</li>
+            <li>✔ Interactive Weekly Quizzes & Final Exam Window</li>
+            <li>✔ Official GST Tax Invoice & Starter Notes</li>
           </ul>
           <a class="btn btn-primary" href="#enroll" style="width:100%;padding:13px">Register for Course</a>
         </div>
@@ -284,30 +279,42 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
   <!-- TRUST STRIP -->
   <div class="trust-strip">
     <div class="container strip-items">
-      <div><h4>Agency-Grade Syllabus</h4><p>Real-world campaign execution</p></div>
-      <div><h4>Self-Paced Learning</h4><p>Access anytime on mobile</p></div>
-      <div><h4>Automated ID System</h4><p>Digital student verification</p></div>
-      <div><h4>Mentor Support</h4><p>Direct WhatsApp resolution</p></div>
+      <div><h4>20 Core & AI Modules</h4><p>Agency workflows & Prompting</p></div>
+      <div><h4>Automated Student ID</h4><p>Instant digital credentials</p></div>
+      <div><h4>Weekly Tests & Exams</h4><p>Assessments & Scoring</p></div>
+      <div><h4>Direct Support</h4><p>1-on-1 WhatsApp resolution</p></div>
     </div>
   </div>
 
-  <!-- COURSE MODULES SECTION -->
+  <!-- 20 MODULES SECTION (INCLUDING AI MODULES) -->
   <section class="section" id="course">
     <div class="container">
       <div class="section-head">
-        <div class="pill-badge">Detailed Syllabus</div>
-        <h2>Structured Learning Roadmap</h2>
-        <p>Carefully sequenced modules covering organic growth and media buying.</p>
+        <div class="pill-badge">Complete 20-Module Curriculum</div>
+        <h2>From Fundamentals to AI Mastery</h2>
+        <p>A comprehensive masterclass structure designed for high-performing modern digital marketers.</p>
       </div>
       <div class="modules-grid">
-        <div class="module-box"><span class="module-tag">Module 01</span><h3>Marketing Foundations</h3><p>Audience profiling, positioning, offers, and marketing funnels.</p></div>
-        <div class="module-box"><span class="module-tag">Module 02</span><h3>Search Engine Optimization</h3><p>Keywords research, on-page optimization, search console, and backlink strategies.</p></div>
-        <div class="module-box"><span class="module-tag">Module 03</span><h3>Content & Copywriting</h3><p>Viral hook creation, ad copy psychology, content calendars, and storytelling.</p></div>
-        <div class="module-box"><span class="module-tag">Module 04</span><h3>Social Media Growth</h3><p>Growth hacking Instagram, LinkedIn personal branding, and organic reach.</p></div>
-        <div class="module-box"><span class="module-tag">Module 05</span><h3>Meta & Google Ads Pro</h3><p>Campaign architecture, custom audiences, retargeting funnels, and ROI tracking.</p></div>
-        <div class="module-box"><span class="module-tag">Module 06</span><h3>Email Marketing & CRM</h3><p>Lead magnet design, automated drip sequences, and list segmentation rules.</p></div>
-        <div class="module-box"><span class="module-tag">Module 07</span><h3>Web Analytics (GA4)</h3><p>Event tracking, data visualization, reading metrics, and client reporting.</p></div>
-        <div class="module-box"><span class="module-tag">Module 08</span><h3>Freelancing & Clients</h3><p>Pitching high-ticket clients, proposal templates, pricing, and portfolios.</p></div>
+        <div class="module-box"><span class="module-tag">Module 01</span><h3>Marketing Foundations</h3><p>Consumer behavior, psychographics, core positioning, and customer lifetime value.</p></div>
+        <div class="module-box"><span class="module-tag">Module 02</span><h3>Funnel Architecture</h3><p>TOFU, MOFU, BOFU frameworks and lead conversion mechanics.</p></div>
+        <div class="module-box"><span class="module-tag">Module 03</span><h3>SEO Keyword Research</h3><p>Search intent mapping, long-tail discovery, and competitive gap analysis.</p></div>
+        <div class="module-box"><span class="module-tag">Module 04</span><h3>On-Page & Technical SEO</h3><p>Core Web Vitals, schema markup, site speed, and search indexing.</p></div>
+        <div class="module-box"><span class="module-tag">Module 05</span><h3>Link Building & Off-Page</h3><p>Digital PR outreach, guest posting, and high-authority backlink strategies.</p></div>
+        <div class="module-box ai-box"><span class="module-tag">Module 06 · AI</span><h3>AI Copywriting & ChatGPT</h3><p>Prompt engineering for ad headlines, email sequences, and landing pages.</p></div>
+        <div class="module-box ai-box"><span class="module-tag">Module 07 · AI</span><h3>AI Visuals with Midjourney</h3><p>Generating high-converting ad banners and creative visual concepts.</p></div>
+        <div class="module-box"><span class="module-tag">Module 08</span><h3>Content Marketing Engine</h3><p>Evergreen content systems, viral storytelling, and distribution calendars.</p></div>
+        <div class="module-box"><span class="module-tag">Module 09</span><h3>Instagram & Social Growth</h3><p>Reels algorithms, hook sequencing, and community engagement tactics.</p></div>
+        <div class="module-box"><span class="module-tag">Module 10</span><h3>LinkedIn Personal Brand</h3><p>Thought leadership, networking funnels, and high-ticket B2B outreach.</p></div>
+        <div class="module-box"><span class="module-tag">Module 11</span><h3>YouTube Channel Growth</h3><p>Video SEO, thumbnail psychology, scripting, and audience retention metrics.</p></div>
+        <div class="module-box"><span class="module-tag">Module 12</span><h3>Meta Ads (FB & Insta)</h3><p>Campaign budget optimization, custom lookalike audiences, and creative testing.</p></div>
+        <div class="module-box"><span class="module-tag">Module 13</span><h3>Google Search & PPC Ads</h3><p>Keyword match types, quality score optimization, negative keywords, and bidding.</p></div>
+        <div class="module-box"><span class="module-tag">Module 14</span><h3>Google Display & YouTube Ads</h3><p>Video ad formats, placement targeting, retargeting pools, and ROAS formulas.</p></div>
+        <div class="module-box ai-box"><span class="module-tag">Module 15 · AI</span><h3>Marketing Automation & Zapier</h3><p>Connecting webhooks, CRM automations, lead routing, and instant alerts.</p></div>
+        <div class="module-box"><span class="module-tag">Module 16</span><h3>Email Marketing & Drip</h3><p>Segmented broadcasts, abandoned cart recovery, and deliverability protection.</p></div>
+        <div class="module-box"><span class="module-tag">Module 17</span><h3>Web Analytics 4 (GA4)</h3><p>Custom conversions, event tracking, path exploration, and attribution models.</p></div>
+        <div class="module-box"><span class="module-tag">Module 18</span><h3>Conversion Rate Optimization</h3><p>A/B split testing, heatmaps, UX wireframes, and frictionless checkout designs.</p></div>
+        <div class="module-box ai-box"><span class="module-tag">Module 19 · AI</span><h3>AI Analytics & Forecasting</h3><p>Predictive churn modeling, audience clustering, and automated reporting scripts.</p></div>
+        <div class="module-box"><span class="module-tag">Module 20</span><h3>Agency & High-Ticket Pitching</h3><p>Client proposals, monthly retainers, NDA contracts, and portfolio closing.</p></div>
       </div>
     </div>
   </section>
@@ -329,8 +336,8 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
           <p style="font-size:13px;color:var(--muted)">Pay directly via Google Pay, PhonePe, Paytm, or BHIM UPI without convenience fee surcharges.</p>
         </div>
         <div style="border:1px solid var(--border);padding:20px;border-radius:var(--radius)">
-          <h3 style="margin-bottom:6px">WhatsApp Direct Connect</h3>
-          <p style="font-size:13px;color:var(--muted)">Instant faculty query redressal over WhatsApp so you never get stuck while practicing campaigns.</p>
+          <h3 style="margin-bottom:6px">Interactive Quizzes & Exams</h3>
+          <p style="font-size:13px;color:var(--muted)">Regular weekly tests to evaluate practical retention with final certification exam windows.</p>
         </div>
       </div>
     </div>
@@ -349,7 +356,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
             <li>Submit personal and contact details.</li>
             <li>Scan official QR code or tap UPI link.</li>
             <li>Submit the 12-digit UTR transaction number.</li>
-            <li>Login to access courses, study notes, and ID Card.</li>
+            <li>Login to access courses, study notes, tests, and ID Card.</li>
           </ol>
         </div>
       </div>
@@ -405,8 +412,8 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
       </div>
       <div class="faq-list">
         <details class="faq-card"><summary>How will I get my Student ID Card?</summary><p>Once registered, open your student dashboard. The automated Student ID Card tab immediately loads your personalized card with Roll Number and details.</p></details>
-        <details class="faq-card"><summary>Is the fee ₹799 only once?</summary><p>Yes, ₹799 is the complete one-time enrollment fee for the entire masterclass, notes, and certification.</p></details>
-        <details class="faq-card"><summary>Does this work smoothly on mobile phones?</summary><p>Yes! Disa Study is 100% optimized for mobile browsers with touch navigation and instant PDF downloads.</p></details>
+        <details class="faq-card"><summary>Are the AI Marketing Modules included?</summary><p>Yes, all 20 modules including ChatGPT Prompting, Midjourney Ad Creatives, and Zapier Marketing Automation are fully included in the ₹799 price.</p></details>
+        <details class="faq-card"><summary>How do Weekly Quizzes and Exams work?</summary><p>Enrolled students can take weekly knowledge checks directly in their portal. The final exam opens 3 months after admission approval.</p></details>
       </div>
     </div>
   </section>
@@ -415,7 +422,15 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
 <!-- HIGH PROFESSIONAL STUDENT DASHBOARD -->
 <section id="dashboard-screen" class="dash-screen">
   <div class="dash-topbar">
-    <div class="brand"><div class="brand-mark">D</div> <span>Disa Study Portal</span></div>
+    <div class="nav-left">
+      <!-- 3-LINE MENU TRIGGER INSIDE DASHBOARD -->
+      <button class="drawer-trigger" id="dash-drawer-open" aria-label="Open Navigation Drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="brand"><div class="brand-mark">D</div> <span>Disa Study Portal</span></div>
+    </div>
     <div style="display:flex;align-items:center;gap:10px">
       <span style="font-size:12px;font-weight:700" id="dash-user-label">Student</span>
       <button class="btn btn-secondary" id="signout-button" type="button" style="padding:6px 12px;font-size:11px">Sign Out</button>
@@ -426,10 +441,12 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
     <!-- DASHBOARD SIDEBAR (DESKTOP + MOBILE HORIZONTAL SCROLL) -->
     <aside class="dash-sidebar">
       <button class="dash-tab-btn active" data-tab="overview">📊 Overview</button>
-      <button class="dash-tab-btn" data-tab="modules">📚 Course Lectures</button>
+      <button class="dash-tab-btn" data-tab="modules">📚 20 Lectures</button>
       <button class="dash-tab-btn" data-tab="idcard">🪪 Student ID Card</button>
+      <button class="dash-tab-btn" data-tab="quizzes">📝 Weekly Tests</button>
+      <button class="dash-tab-btn" data-tab="exam">🎓 Final Exam</button>
       <button class="dash-tab-btn" data-tab="receipt">📄 Tax Invoice</button>
-      <button class="dash-tab-btn" data-tab="notes">📝 Course Notes</button>
+      <button class="dash-tab-btn" data-tab="notes">📁 Course Notes</button>
       <button class="dash-tab-btn" data-tab="support">💬 Mentor Support</button>
     </aside>
 
@@ -442,7 +459,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         <div class="widget-card">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap">
             <span class="pill-badge" id="status-pill">STATUS</span>
-            <span style="font-size:11px;color:var(--muted)">Session 2026</span>
+            <span style="font-size:11px;color:var(--muted)">Academic Year 2026</span>
           </div>
           <h2 style="font-size:22px;margin-bottom:4px">Welcome back, <span id="dashboard-name">Student</span></h2>
           <p id="status-copy" style="font-size:13px;color:var(--muted)"></p>
@@ -451,7 +468,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         <!-- RESUME PAYMENT CARD IF AWAITING -->
         <div class="widget-card" id="resume-payment-panel" style="display:none;background:#fefce8;border-color:#fef08a">
           <h3>Finish Admission Payment</h3>
-          <p style="font-size:12px;color:#854d0e;margin:4px 0 12px">Complete ₹799 UPI payment to unlock learning lectures and official ID card.</p>
+          <p style="font-size:12px;color:#854d0e;margin:4px 0 12px">Complete ₹799 UPI payment to unlock all 20 modules, exams, and your verified Student ID Card.</p>
           <div class="qr-container">
             <img id="resume-payment-qr" class="qr-img" src="./qr.png" alt="Disa Study QR">
             <div>
@@ -467,16 +484,32 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         </div>
       </div>
 
-      <!-- PANE 2: LECTURES -->
+      <!-- PANE 2: ALL 20 LECTURES -->
       <div class="dash-pane" id="pane-modules">
         <div class="widget-card">
-          <h2>Masterclass Lectures</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:18px">High-definition lectures and resources prepared by agency mentors.</p>
+          <h2>Digital & AI Marketing Syllabus (20 Modules)</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:18px">Agency workflows and modern artificial intelligence tool integrations.</p>
           <div class="modules-grid" style="grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))">
-            <div class="module-box"><span class="module-tag">Lecture 01</span><h3>Funnel Architecture</h3><p>Mapping high-converting customer journeys.</p></div>
-            <div class="module-box"><span class="module-tag">Lecture 02</span><h3>SEO Ranking Formula</h3><p>Keywords, site speed, and structured metadata.</p></div>
-            <div class="module-box"><span class="module-tag">Lecture 03</span><h3>Copywriting & Visuals</h3><p>Writing ad copies that command attention.</p></div>
-            <div class="module-box"><span class="module-tag">Lecture 04</span><h3>Meta & Google Ads</h3><p>Step-by-step media buying execution.</p></div>
+            <div class="module-box"><span class="module-tag">01</span><h3>Foundations & Psychographics</h3><p>Mapping audiences, avatars, and lifetime value.</p></div>
+            <div class="module-box"><span class="module-tag">02</span><h3>Funnel Architecture</h3><p>TOFU, MOFU, and BOFU sales mechanisms.</p></div>
+            <div class="module-box"><span class="module-tag">03</span><h3>SEO Keyword Research</h3><p>Intent discovery and search volume clustering.</p></div>
+            <div class="module-box"><span class="module-tag">04</span><h3>On-Page & Technical SEO</h3><p>Speed, indexing, and structured rich snippets.</p></div>
+            <div class="module-box"><span class="module-tag">05</span><h3>Off-Page & Authority Backlinks</h3><p>PR link building and competitive outreach.</p></div>
+            <div class="module-box ai-box"><span class="module-tag">06 · AI</span><h3>AI Copywriting (ChatGPT)</h3><p>High-converting landing page & ad scripting.</p></div>
+            <div class="module-box ai-box"><span class="module-tag">07 · AI</span><h3>AI Creatives (Midjourney)</h3><p>Banner rendering and generative ad concepts.</p></div>
+            <div class="module-box"><span class="module-tag">08</span><h3>Content Distribution Engine</h3><p>Multi-channel publishing & storytelling rules.</p></div>
+            <div class="module-box"><span class="module-tag">09</span><h3>Instagram Reels & Organic Scale</h3><p>Viral hook timing and community retention.</p></div>
+            <div class="module-box"><span class="module-tag">10</span><h3>LinkedIn Executive Branding</h3><p>B2B client pipelines and thought leadership.</p></div>
+            <div class="module-box"><span class="module-tag">11</span><h3>YouTube Growth & Video SEO</h3><p>CTR thumbnails and watch-time optimization.</p></div>
+            <div class="module-box"><span class="module-tag">12</span><h3>Meta Ads (Facebook & Instagram)</h3><p>Media buying, lookalikes, and scaling ROAS.</p></div>
+            <div class="module-box"><span class="module-tag">13</span><h3>Google Search PPC Ads</h3><p>Ad auction mechanics and quality score hacks.</p></div>
+            <div class="module-box"><span class="module-tag">14</span><h3>YouTube & Display Network Ads</h3><p>In-stream video targeting and retargeting pools.</p></div>
+            <div class="module-box ai-box"><span class="module-tag">15 · AI</span><h3>Zapier & Workflow Automation</h3><p>Automating CRM pipelines and customer notifications.</p></div>
+            <div class="module-box"><span class="module-tag">16</span><h3>Email Retention & Drip Funnels</h3><p>Lead magnets and automated nurturing sequences.</p></div>
+            <div class="module-box"><span class="module-tag">17</span><h3>Google Analytics 4 Mastery</h3><p>Attribution modeling and custom conversion tracking.</p></div>
+            <div class="module-box"><span class="module-tag">18</span><h3>Conversion Rate Optimization</h3><p>Heatmap analysis and UX friction reduction.</p></div>
+            <div class="module-box ai-box"><span class="module-tag">19 · AI</span><h3>Predictive AI Analytics</h3><p>Customer churn forecasting and automated reports.</p></div>
+            <div class="module-box"><span class="module-tag">20</span><h3>Agency Freelancing & Contracts</h3><p>Pitching high-ticket monthly retainer clients.</p></div>
           </div>
         </div>
       </div>
@@ -485,7 +518,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
       <div class="dash-pane" id="pane-idcard">
         <div class="widget-card" style="text-align:center">
           <h2>Automated Student Identity Card</h2>
-          <p style="color:var(--muted);font-size:12px;margin-bottom:20px">Official verification card issued by Disa Study Department of Education.</p>
+          <p style="color:var(--muted);font-size:12px;margin-bottom:20px">Official digital credential issued by Disa Study Department of Education.</p>
           
           <div class="id-badge-canvas">
             <div class="id-band">
@@ -495,11 +528,11 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
             <div class="id-avatar-circle" id="id-avatar">S</div>
             <div class="id-body">
               <div class="id-student-name" id="id-name">Student Name</div>
-              <span class="id-tag-verified">VERIFIED SCHOLAR</span>
+              <span class="id-tag-verified" style="display:inline-block;background:#ecfdf5;color:#047857;font-size:10px;font-weight:800;padding:2px 8px;border-radius:99px">VERIFIED SCHOLAR</span>
               
               <div class="id-info-grid">
                 <div class="id-info-row"><span>Roll Number:</span><strong id="id-roll">DS-2026-001</strong></div>
-                <div class="id-info-row"><span>Course:</span><strong>Digital Marketing Masterclass</strong></div>
+                <div class="id-info-row"><span>Course:</span><strong>Digital & AI Marketing (20 Modules)</strong></div>
                 <div class="id-info-row"><span>Mobile:</span><strong id="id-mobile">+91 00000 00000</strong></div>
                 <div class="id-info-row"><span>Email:</span><strong id="id-email">student@disastudy.com</strong></div>
                 <div class="id-info-row"><span>Location:</span><strong id="id-city">India</strong></div>
@@ -516,7 +549,49 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         </div>
       </div>
 
-      <!-- PANE 4: TAX INVOICE -->
+      <!-- PANE 4: WEEKLY QUIZZES & ASSESSMENTS -->
+      <div class="dash-pane" id="pane-quizzes">
+        <div class="widget-card">
+          <h2>Weekly Knowledge Checks</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Test your practical understanding across modules. Immediate automated grading enabled.</p>
+          
+          <form id="quiz-form">
+            <div class="quiz-item">
+              <p>Q1: Meta Ads me TOFU audience ka primary objective kya hota hai?</p>
+              <label class="quiz-opt"><input type="radio" name="q1" value="A"> Cold audience awareness & reach badhana</label>
+              <label class="quiz-opt"><input type="radio" name="q1" value="B"> Direct checkout purchase mangna</label>
+              <label class="quiz-opt"><input type="radio" name="q1" value="C"> Website band karwana</label>
+            </div>
+            <div class="quiz-item">
+              <p>Q2: ChatGPT prompt engineering me 'System Persona' ka role kya hota hai?</p>
+              <label class="quiz-opt"><input type="radio" name="q2" value="A"> AI ko specific role (e.g. Senior Copywriter) me operate karwana</label>
+              <label class="quiz-opt"><input type="radio" name="q2" value="B"> Sirf spelling theek karna</label>
+              <label class="quiz-opt"><input type="radio" name="q2" value="C"> Browser close karna</label>
+            </div>
+            <div class="quiz-item">
+              <p>Q3: SEO me Core Web Vitals kis cheez ko measure karte hain?</p>
+              <label class="quiz-opt"><input type="radio" name="q3" value="A"> Page loading speed, visual stability aur responsiveness</label>
+              <label class="quiz-opt"><input type="radio" name="q3" value="B"> Social media followers</label>
+              <label class="quiz-opt"><input type="radio" name="q3" value="C"> Monthly billing</label>
+            </div>
+            <button class="btn btn-primary" type="button" id="submit-quiz-btn">Submit Weekly Assessment</button>
+            <div id="quiz-result" class="success"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- PANE 5: FINAL EXAM WINDOW -->
+      <div class="dash-pane" id="pane-exam">
+        <div class="widget-card">
+          <h2>Official Final Certification Exam</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:14px">The final examination unlocks 3 months after payment approval. Disa Study will publish questions upon unlock.</p>
+          <div id="final-exam-status" class="success" style="display:block;background:#f8fafc;border-color:#e2e8f0;color:#1e293b">
+            Exam eligibility status loading...
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 6: TAX INVOICE -->
       <div class="dash-pane" id="pane-receipt">
         <div class="widget-card">
           <h2>Official Fee Payment Tax Invoice</h2>
@@ -525,7 +600,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         </div>
       </div>
 
-      <!-- PANE 5: STUDY NOTES -->
+      <!-- PANE 7: STUDY NOTES -->
       <div class="dash-pane" id="pane-notes">
         <div class="widget-card">
           <h2>Course Resource Notes</h2>
@@ -534,7 +609,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         </div>
       </div>
 
-      <!-- PANE 6: SUPPORT -->
+      <!-- PANE 8: SUPPORT -->
       <div class="dash-pane" id="pane-support">
         <div class="widget-card">
           <h2>Faculty Help Desk</h2>
@@ -560,7 +635,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
     <button class="modal-close" id="login-close">×</button>
     <div class="brand" style="margin-bottom:6px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
     <h3 style="font-size:19px;margin-bottom:2px">Student Portal Login</h3>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Access course lectures and your Student ID Card.</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Access all 20 course modules, quizzes, and your Student ID Card.</p>
     <form id="login-form">
       <div class="field" style="margin-bottom:10px"><label>Email Address</label><input id="login-email" type="email" placeholder="student@example.com" required></div>
       <div class="field" style="margin-bottom:14px"><label>Password</label><input id="login-password" type="password" required></div>
@@ -576,15 +651,15 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
     <div class="footer-grid">
       <div>
         <div class="brand" style="color:#fff;margin-bottom:10px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
-        <p style="font-size:12px;color:#94a3b8;max-width:300px">Official Ed-Tech initiative delivering agency-grade practical skills for career advancement.</p>
+        <p style="font-size:12px;color:#94a3b8;max-width:300px">Premier educational portal preparing career-oriented professionals with modern AI and digital marketing frameworks.</p>
       </div>
       <div>
-        <h4>Course Topics</h4>
+        <h4>Curriculum Pillars</h4>
         <ul>
-          <li>Marketing Strategy & SEO</li>
-          <li>Meta & Google Media Buying</li>
-          <li>Email Marketing & Automations</li>
-          <li>Web Analytics & Client Pitching</li>
+          <li>Performance Media Buying</li>
+          <li>SEO & Technical Indexing</li>
+          <li>AI Marketing & Automation</li>
+          <li>Analytics & Client Retainers</li>
         </ul>
       </div>
       <div>
@@ -592,7 +667,7 @@ button, input, select, textarea { font-family: inherit; font-size: 16px; }
         <ul>
           <li>Official UPI: samtiwari06@axl</li>
           <li>WhatsApp Helpline: +91 96309 58789</li>
-          <li>Verified Student Certification</li>
+          <li>Automated Verified Credentials</li>
         </ul>
       </div>
     </div>
