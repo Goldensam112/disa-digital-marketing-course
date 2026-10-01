@@ -2,8 +2,8 @@
 <html lang="hi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Disa Study | India's Leading Digital Learning Institute</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Disa Study | Premier Digital Learning Institute</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
@@ -11,222 +11,199 @@
 <style>
 :root {
   --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --primary-glow: rgba(79, 70, 229, 0.35);
+  --primary-dark: #3730a3;
+  --primary-glow: rgba(79, 70, 229, 0.25);
   --accent: #10b981;
-  --accent-glow: rgba(16, 185, 129, 0.3);
+  --accent-glow: rgba(16, 185, 129, 0.25);
   --dark: #090d16;
-  --dark-surface: #111827;
+  --dark-surface: #0f172a;
   --slate: #1e293b;
   --muted: #64748b;
   --surface: #ffffff;
   --bg: #f8fafc;
   --border: #e2e8f0;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
-  --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
-  --shadow-glow: 0 20px 40px -15px var(--primary-glow);
+  --radius: 16px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-md: 0 12px 30px -8px rgba(15,23,42,0.08);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--slate); line-height: 1.6; overflow-x: hidden; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--slate); line-height: 1.5; overflow-x: hidden; width: 100%; }
 a { text-decoration: none; color: inherit; }
-button, input, select, textarea { font-family: inherit; }
-.container { width: min(1200px, calc(100% - 32px)); margin: auto; }
+button, input, select, textarea { font-family: inherit; font-size: 16px; }
+.container { width: min(1200px, 100% - 24px); margin: auto; }
 
-/* ANIMATIONS */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
-  50% { box-shadow: 0 0 0 14px rgba(79, 70, 229, 0); }
-}
-@keyframes floatAnim {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* ANNOUNCEMENT BANNER */
+.top-banner { background: linear-gradient(90deg, #1e1b4b, #4338ca, #065f46); color: #fff; font-size: 11px; font-weight: 800; padding: 7px 12px; text-align: center; letter-spacing: 0.3px; }
 
-/* TOP ANNOUNCEMENT BANNER */
-.top-banner { background: linear-gradient(90deg, #312e81, #4f46e5, #065f46); color: #fff; font-size: 12px; font-weight: 700; padding: 8px 16px; text-align: center; letter-spacing: 0.3px; }
+/* HEADER WITH LEFT HAMBURGER BUTTON */
+.header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-left { display: flex; align-items: center; gap: 12px; }
 
-/* HEADER WITH LEFT 3-LINE DRAWER BUTTON */
-.header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
-.nav-bar { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 16px; }
-.nav-left { display: flex; align-items: center; gap: 14px; }
-.drawer-trigger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 9px; transition: 0.2s; }
-.drawer-trigger:hover { background: #e2e8f0; }
-.drawer-trigger span { display: block; width: 100%; height: 2px; background: var(--dark); border-radius: 2px; transition: 0.3s; }
+/* 3-LINE LEFT DRAWER BUTTON */
+.drawer-trigger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); cursor: pointer; padding: 10px; transition: 0.2s; }
+.drawer-trigger:active { transform: scale(0.95); background: #e2e8f0; }
+.drawer-trigger span { display: block; width: 100%; height: 2px; background: var(--dark); border-radius: 2px; }
 
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 21px; color: var(--dark); letter-spacing: -0.5px; }
-.brand-mark { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), #818cf8); color: #fff; display: grid; place-items: center; font-size: 20px; font-family: 'Space Grotesk', sans-serif; font-weight: 800; box-shadow: 0 8px 16px var(--primary-glow); }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 19px; color: var(--dark); letter-spacing: -0.5px; }
+.brand-mark { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), #818cf8); color: #fff; display: grid; place-items: center; font-size: 18px; font-family: 'Space Grotesk', sans-serif; font-weight: 800; box-shadow: 0 4px 12px var(--primary-glow); }
 
-.nav-links-desktop { display: flex; align-items: center; gap: 28px; list-style: none; font-size: 14px; font-weight: 700; color: #475569; }
+.nav-links-desktop { display: flex; align-items: center; gap: 24px; list-style: none; font-size: 14px; font-weight: 700; color: #475569; }
 .nav-links-desktop a:hover { color: var(--primary); }
-.nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
 
 /* BUTTONS */
-.btn { border: 0; border-radius: var(--radius-sm); padding: 11px 20px; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease; position: relative; }
-.btn-primary { background: linear-gradient(135deg, var(--primary), #6366f1); color: #fff; box-shadow: var(--shadow-glow); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px var(--primary-glow); }
+.btn { border: 0; border-radius: 10px; padding: 10px 18px; font-size: 13px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; white-space: nowrap; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), #6366f1); color: #fff; box-shadow: 0 6px 18px var(--primary-glow); }
+.btn-primary:active { transform: scale(0.97); }
 .btn-secondary { background: #f1f5f9; color: var(--slate); border: 1px solid var(--border); }
-.btn-secondary:hover { background: #e2e8f0; }
-.btn-glow { animation: pulseGlow 2.5s infinite; }
+.btn-secondary:active { background: #e2e8f0; }
 
 /* LEFT-SIDE SLIDING DRAWER MENU */
-.drawer-backdrop { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.6); backdrop-filter: blur(4px); z-index: 999; display: none; }
-.drawer-backdrop.active { display: block; }
-.left-drawer { position: fixed; top: 0; left: 0; bottom: 0; width: min(320px, 85vw); background: #ffffff; z-index: 1000; box-shadow: 10px 0 40px rgba(0,0,0,0.2); transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; padding: 24px; overflow-y: auto; }
+.drawer-backdrop { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.65); backdrop-filter: blur(4px); z-index: 998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.drawer-backdrop.active { opacity: 1; pointer-events: auto; }
+.left-drawer { position: fixed; top: 0; left: 0; bottom: 0; width: min(300px, 82vw); background: #ffffff; z-index: 999; box-shadow: 12px 0 35px rgba(0,0,0,0.18); transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; padding: 20px; overflow-y: auto; }
 .left-drawer.active { transform: translateX(0); }
-.drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.drawer-close-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); font-size: 20px; display: grid; place-items: center; cursor: pointer; }
-.drawer-menu { display: flex; flex-direction: column; gap: 8px; list-style: none; }
-.drawer-menu a, .drawer-menu button { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; font-size: 15px; font-weight: 700; color: var(--slate); background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; transition: 0.2s; }
-.drawer-menu a:hover, .drawer-menu button:hover { background: #eef2ff; color: var(--primary); }
-.drawer-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.drawer-close { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); font-size: 20px; display: grid; place-items: center; cursor: pointer; }
+.drawer-menu { display: flex; flex-direction: column; gap: 6px; list-style: none; }
+.drawer-menu a, .drawer-menu button { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; font-size: 14px; font-weight: 700; color: var(--slate); background: transparent; border: 0; width: 100%; text-align: left; cursor: pointer; }
+.drawer-menu a:active, .drawer-menu button:active { background: #eef2ff; color: var(--primary); }
+.drawer-footer { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); }
 
 /* HERO SECTION */
-.hero { padding: 50px 0 70px; position: relative; overflow: hidden; }
-.hero-glow-blob { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; }
-.pill-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 99px; background: #eef2ff; color: var(--primary); font-size: 12px; font-weight: 800; border: 1px solid #c7d2fe; text-transform: uppercase; margin-bottom: 16px; }
-.hero h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 900; line-height: 1.15; letter-spacing: -1.5px; color: var(--dark); margin-bottom: 18px; }
+.hero { padding: 40px 0 55px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+.pill-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 99px; background: #eef2ff; color: var(--primary); font-size: 11px; font-weight: 800; border: 1px solid #c7d2fe; text-transform: uppercase; margin-bottom: 14px; }
+.hero h1 { font-size: clamp(30px, 7vw, 54px); font-weight: 900; line-height: 1.15; letter-spacing: -1.2px; color: var(--dark); margin-bottom: 14px; }
 .hero h1 span { background: linear-gradient(135deg, var(--primary), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero p { font-size: 16px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; max-width: 520px; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+.hero p { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
 
-/* PRICING CARD (FLOATING CARD) */
-.hero-price-card { background: #fff; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--border); box-shadow: var(--shadow-md); position: relative; animation: floatAnim 6s ease-in-out infinite; }
-.badge-discount { position: absolute; top: -12px; right: 24px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 900; padding: 4px 12px; border-radius: 99px; box-shadow: 0 4px 12px var(--accent-glow); text-transform: uppercase; }
-.price-tag { font-size: 46px; font-weight: 900; font-family: 'Space Grotesk', sans-serif; color: var(--dark); margin: 8px 0; display: flex; align-items: baseline; gap: 10px; }
-.price-tag del { font-size: 18px; color: var(--muted); font-weight: 600; }
-.card-perks { list-style: none; display: grid; gap: 10px; font-size: 13px; font-weight: 600; color: #475569; margin: 18px 0; }
+/* PRICING CARD */
+.hero-price-card { background: #fff; border-radius: var(--radius); padding: 24px; border: 1px solid var(--border); box-shadow: var(--shadow-md); position: relative; }
+.badge-discount { position: absolute; top: -11px; right: 20px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 900; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; }
+.price-tag { font-size: 40px; font-weight: 900; font-family: 'Space Grotesk', sans-serif; color: var(--dark); margin: 6px 0; display: flex; align-items: baseline; gap: 8px; }
+.price-tag del { font-size: 16px; color: var(--muted); font-weight: 600; }
+.card-perks { list-style: none; display: grid; gap: 8px; font-size: 12px; font-weight: 700; color: #475569; margin: 16px 0; }
 
-/* STRIP */
-.trust-strip { background: var(--dark-surface); color: #fff; padding: 20px 0; }
-.strip-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center; }
-.strip-items h4 { font-size: 14px; font-weight: 800; color: #f8fafc; }
-.strip-items p { font-size: 12px; color: #94a3b8; }
+/* TRUST STRIP */
+.trust-strip { background: var(--dark-surface); color: #fff; padding: 18px 0; }
+.strip-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; text-align: center; }
+.strip-items h4 { font-size: 13px; font-weight: 800; color: #f8fafc; }
+.strip-items p { font-size: 11px; color: #94a3b8; }
 
 /* MODULES SECTION */
-.section { padding: 75px 0; }
-.section-head { text-align: center; max-width: 650px; margin: 0 auto 40px; }
-.section-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; letter-spacing: -1px; margin: 10px 0; }
-.modules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.module-box { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; transition: 0.2s; position: relative; }
-.module-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
-.module-tag { font-size: 11px; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
-.module-box h3 { font-size: 16px; font-weight: 800; margin: 8px 0; color: var(--dark); }
+.section { padding: 60px 0; }
+.section-head { text-align: center; max-width: 650px; margin: 0 auto 35px; }
+.section-head h2 { font-size: clamp(26px, 5vw, 36px); font-weight: 900; letter-spacing: -1px; margin: 8px 0; }
+.modules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.module-box { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; transition: 0.2s; }
+.module-tag { font-size: 10px; font-weight: 900; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.module-box h3 { font-size: 15px; font-weight: 800; margin: 6px 0; color: var(--dark); }
 .module-box p { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
 /* ENROLLMENT FORM & UPI PAYMENT */
-.enroll-wrap { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 40px; align-items: start; }
-.form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-md); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
-.field { display: flex; flex-direction: column; gap: 6px; }
+.enroll-wrap { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 32px; align-items: start; }
+.form-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-md); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.field { display: flex; flex-direction: column; gap: 5px; }
 .field.full { grid-column: 1 / -1; }
-.field label { font-size: 12px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.3px; }
-.field input, .field select, .field textarea { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 14px; background: #fdfdfd; outline: none; transition: 0.2s; }
+.field label { font-size: 11px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.3px; }
+.field input, .field select, .field textarea { border: 1px solid var(--border); border-radius: 8px; padding: 11px 12px; font-size: 14px; background: #fdfdfd; outline: none; }
 .field input:focus, .field select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
 
-.payment-step { display: none; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: var(--radius-md); padding: 20px; margin-top: 20px; }
-.qr-container { display: flex; gap: 18px; align-items: center; margin: 14px 0; flex-wrap: wrap; }
-.qr-img { width: 170px; height: 170px; border-radius: 12px; border: 1px solid var(--border); background: #fff; padding: 8px; object-fit: contain; }
+.payment-step { display: none; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 12px; padding: 18px; margin-top: 18px; }
+.qr-container { display: flex; gap: 16px; align-items: center; margin: 14px 0; flex-wrap: wrap; }
+.qr-img { width: 160px; height: 160px; border-radius: 10px; border: 1px solid var(--border); background: #fff; padding: 6px; object-fit: contain; }
 
 /* FAQS */
-.faq-list { max-width: 760px; margin: auto; display: grid; gap: 12px; }
-.faq-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px 20px; }
-.faq-card summary { cursor: pointer; font-weight: 800; font-size: 15px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-list { max-width: 760px; margin: auto; display: grid; gap: 10px; }
+.faq-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+.faq-card summary { cursor: pointer; font-weight: 800; font-size: 14px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
 .faq-card summary::-webkit-details-marker { display: none; }
-.faq-card summary:after { content: "+"; font-size: 22px; color: var(--primary); }
+.faq-card summary:after { content: "+"; font-size: 20px; color: var(--primary); }
 .faq-card[open] summary:after { content: "−"; }
-.faq-card p { margin-top: 10px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+.faq-card p { margin-top: 8px; font-size: 13px; color: var(--muted); }
 
 /* FULL SCREEN STUDENT DASHBOARD */
 .dashboard-mode > .top-banner, .dashboard-mode > header, .dashboard-mode > main, .dashboard-mode > footer { display: none !important; }
 .dash-screen { min-height: 100vh; background: #f1f5f9; display: none; }
-.dash-topbar { height: 70px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; position: sticky; top: 0; z-index: 50; }
-.dash-layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 70px); }
-.dash-sidebar { background: #fff; border-right: 1px solid var(--border); padding: 20px 14px; display: flex; flex-direction: column; gap: 6px; }
-.dash-tab-btn { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 700; color: #475569; border: 0; background: transparent; cursor: pointer; width: 100%; text-align: left; transition: 0.2s; }
-.dash-tab-btn:hover, .dash-tab-btn.active { background: #eef2ff; color: var(--primary); }
-.dash-pane-wrap { padding: 30px; overflow-y: auto; }
-.dash-pane { display: none; animation: fadeIn 0.25s ease forwards; }
+.dash-topbar { height: 64px; background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 18px; position: sticky; top: 0; z-index: 50; }
+.dash-layout { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 64px); }
+.dash-sidebar { background: #fff; border-right: 1px solid var(--border); padding: 16px 10px; display: flex; flex-direction: column; gap: 4px; }
+.dash-tab-btn { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; color: #475569; border: 0; background: transparent; cursor: pointer; width: 100%; text-align: left; }
+.dash-tab-btn.active { background: #eef2ff; color: var(--primary); }
+.dash-pane-wrap { padding: 22px 16px; overflow-y: auto; }
+.dash-pane { display: none; }
 .dash-pane.active { display: block; }
-
-/* CARD & WIDGET */
-.widget-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-sm); margin-bottom: 20px; }
+.widget-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); margin-bottom: 18px; }
 
 /* AUTOMATED ULTRA-REALISTIC STUDENT ID CARD */
-.id-badge-canvas { width: min(360px, 100%); margin: auto; background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: var(--shadow-md); position: relative; }
-.id-band { background: linear-gradient(135deg, #312e81, #4f46e5); color: #fff; padding: 18px; text-align: center; }
-.id-band h4 { font-size: 18px; font-weight: 900; letter-spacing: 0.5px; }
+.id-badge-canvas { width: min(340px, 100%); margin: auto; background: #ffffff; border-radius: 18px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: var(--shadow-md); position: relative; }
+.id-band { background: linear-gradient(135deg, #312e81, #4f46e5); color: #fff; padding: 16px; text-align: center; }
+.id-band h4 { font-size: 17px; font-weight: 900; letter-spacing: 0.5px; }
 .id-band span { font-size: 10px; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; }
-.id-avatar-circle { width: 84px; height: 84px; border-radius: 50%; background: #e0e7ff; color: var(--primary); font-size: 34px; font-weight: 900; display: grid; place-items: center; margin: -42px auto 10px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
-.id-body { padding: 12px 20px 20px; text-align: center; }
-.id-student-name { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
-.id-tag-verified { display: inline-block; background: #ecfdf5; color: #047857; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 99px; letter-spacing: 0.5px; }
-.id-info-grid { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; margin: 16px 0; text-align: left; font-size: 12px; display: grid; gap: 8px; }
+.id-avatar-circle { width: 76px; height: 76px; border-radius: 50%; background: #e0e7ff; color: var(--primary); font-size: 30px; font-weight: 900; display: grid; place-items: center; margin: -38px auto 8px; border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+.id-body { padding: 8px 16px 18px; text-align: center; }
+.id-student-name { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 2px; }
+.id-tag-verified { display: inline-block; background: #ecfdf5; color: #047857; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 99px; }
+.id-info-grid { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; margin: 14px 0; text-align: left; font-size: 11px; display: grid; gap: 6px; }
 .id-info-row { display: flex; justify-content: space-between; }
 .id-info-row span { color: var(--muted); font-weight: 600; }
 .id-info-row strong { color: var(--dark); font-weight: 700; }
-.id-barcode { height: 28px; background: repeating-linear-gradient(90deg, #1e293b, #1e293b 2px, transparent 2px, transparent 5px, #1e293b 5px, #1e293b 8px); opacity: 0.8; margin-top: 10px; }
+.id-barcode { height: 26px; background: repeating-linear-gradient(90deg, #1e293b, #1e293b 2px, transparent 2px, transparent 5px, #1e293b 5px, #1e293b 8px); opacity: 0.8; margin-top: 8px; }
 
 /* MODALS */
-.modal-overlay { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.65); backdrop-filter: blur(4px); z-index: 999; display: none; place-items: center; padding: 20px; }
-.modal-box { background: #fff; width: min(420px, 100%); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-md); position: relative; }
-.modal-close { position: absolute; right: 18px; top: 18px; border: 0; background: none; font-size: 24px; cursor: pointer; color: var(--muted); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(9, 13, 22, 0.65); backdrop-filter: blur(4px); z-index: 999; display: none; place-items: center; padding: 16px; }
+.modal-box { background: #fff; width: min(400px, 100%); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-md); position: relative; }
+.modal-close { position: absolute; right: 16px; top: 16px; border: 0; background: none; font-size: 22px; cursor: pointer; color: var(--muted); }
 
-.success { display: none; margin-top: 14px; padding: 12px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 700; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.success { display: none; margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
 .success.error { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
 
 /* FOOTER */
-.footer { background: var(--dark); color: #fff; padding: 60px 0 30px; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
-.footer-grid h4 { font-size: 15px; margin-bottom: 14px; color: #f8fafc; }
-.footer-grid ul { list-style: none; display: grid; gap: 8px; font-size: 13px; color: #94a3b8; }
+.footer { background: var(--dark); color: #fff; padding: 50px 0 25px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; margin-bottom: 25px; }
+.footer-grid h4 { font-size: 14px; margin-bottom: 12px; color: #f8fafc; }
+.footer-grid ul { list-style: none; display: grid; gap: 6px; font-size: 12px; color: #94a3b8; }
 
-/* MOBILE RESPONSIVE BREAKPOINTS */
+/* MOBILE RESPONSIVE MEDIA QUERIES */
 @media(max-width: 900px) {
   .hero-grid, .enroll-wrap, .dash-layout { grid-template-columns: 1fr; }
   .modules-grid { grid-template-columns: repeat(2, 1fr); }
   .strip-items { grid-template-columns: repeat(2, 1fr); }
   .nav-links-desktop { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
-  .dash-sidebar { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 12px; }
-  .dash-tab-btn { white-space: nowrap; width: auto; font-size: 13px; padding: 8px 14px; }
-  .dash-pane-wrap { padding: 20px 14px; }
+  .dash-sidebar { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 10px; -webkit-overflow-scrolling: touch; }
+  .dash-tab-btn { white-space: nowrap; width: auto; font-size: 12px; padding: 8px 12px; }
+  .dash-pane-wrap { padding: 16px 10px; }
 }
 
 @media(max-width: 600px) {
   .modules-grid, .strip-items, .form-grid { grid-template-columns: 1fr; }
   .field.full { grid-column: auto; }
-  .nav-bar { height: 64px; }
-  .brand { font-size: 18px; }
-  .brand-mark { width: 34px; height: 34px; font-size: 18px; }
-  .btn { padding: 10px 16px; font-size: 13px; }
+  .nav-bar { height: 60px; }
+  .brand { font-size: 17px; }
+  .btn { padding: 9px 14px; font-size: 12px; }
+  .hero h1 { font-size: 32px; }
+  .price-tag { font-size: 36px; }
 }
 </style>
 </head>
 <body>
 
 <div class="top-banner">
-  🔥 ADMISSION OFFER: Complete Course + Automated Student ID Card for just ₹799
+  🔥 ADMISSION OPEN: Digital Marketing Masterclass + Automated Student ID Card for just ₹799
 </div>
 
-<!-- HEADER (WITH 3-LINE DRAWER TRIGGER ON LEFT) -->
+<!-- HEADER WITH 3-LINE MENU ON LEFT -->
 <header class="header">
   <div class="container nav-bar">
     <div class="nav-left">
-      <!-- 3-LINE HAMBURGER MENU BUTTON -->
+      <!-- 3-LINE HAMBURGER TRIGGER -->
       <button class="drawer-trigger" id="left-drawer-open" aria-label="Open Navigation Menu">
         <span></span>
         <span></span>
@@ -247,59 +224,58 @@ button, input, select, textarea { font-family: inherit; }
 
     <div class="nav-actions">
       <button class="btn btn-secondary" id="student-login-open" type="button">Student Login</button>
-      <a class="btn btn-primary btn-glow" href="#enroll">Enroll ₹799</a>
+      <a class="btn btn-primary" href="#enroll">Enroll ₹799</a>
     </div>
   </div>
 </header>
 
-<!-- LEFT-SIDE SLIDING DRAWER MENU -->
+<!-- LEFT-SIDE SLIDING DRAWER MENU (OFF-CANVAS) -->
 <div class="drawer-backdrop" id="drawer-backdrop"></div>
 <aside class="left-drawer" id="left-drawer">
   <div class="drawer-header">
     <div class="brand"><div class="brand-mark">D</div> <span>Disa Study</span></div>
-    <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Menu">×</button>
+    <button class="drawer-close" id="drawer-close-btn" aria-label="Close Menu">×</button>
   </div>
   <ul class="drawer-menu">
     <li><a href="#course" class="drawer-link">📚 Course Syllabus (8 Modules)</a></li>
     <li><a href="#why-us" class="drawer-link">⭐ Why Disa Study</a></li>
     <li><a href="#enroll" class="drawer-link">📝 Admission & Payment</a></li>
     <li><a href="#faq" class="drawer-link">❓ Questions & Answers</a></li>
-    <li><button type="button" id="drawer-login-btn">🔐 Student Dashboard Login</button></li>
+    <li><button type="button" id="drawer-login-btn">🔐 Student Portal Login</button></li>
     <li><a href="https://wa.me/919630958789" target="_blank">💬 WhatsApp Help Desk</a></li>
   </ul>
   <div class="drawer-footer">
-    <div>Disa Study Education Wing</div>
-    <div style="margin-top:4px">Official Support: +91 96309 58789</div>
+    <div>Disa Study Academic Portal</div>
+    <div style="margin-top:3px">Official Support: +91 96309 58789</div>
   </div>
 </aside>
 
 <main id="top">
   <!-- HERO SECTION -->
   <section class="hero">
-    <div class="hero-glow-blob"></div>
     <div class="container hero-grid">
       <div>
         <div class="pill-badge">✦ Official Ed-Tech Portal 2026</div>
-        <h1>Career-Ready Digital Marketing with <span>Disa Study</span></h1>
-        <p>Go from absolute beginner to high-income agency marketer. Learn SEO, Meta Ads, Funnels, and Analytics with an automated student identity card and verified certification.</p>
+        <h1>Practical Digital Marketing with <span>Disa Study</span></h1>
+        <p>Master SEO, Google & Meta Ads, Content Strategy, and Analytics. Receive an automated verified student identity card and official course invoice.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-glow" href="#enroll">Get Enrolled for ₹799 →</a>
-          <a class="btn btn-secondary" href="#course">Explore 8 Modules ↓</a>
+          <a class="btn btn-primary" href="#enroll">Enroll Now for ₹799 →</a>
+          <a class="btn btn-secondary" href="#course">View 8 Modules ↓</a>
         </div>
       </div>
       <div>
         <div class="hero-price-card">
           <div class="badge-discount">84% Discount</div>
-          <span style="font-size:12px;font-weight:800;color:var(--muted)">ONE-TIME ALL INCLUSIVE FEE</span>
+          <span style="font-size:11px;font-weight:800;color:var(--muted)">ONE-TIME ALL INCLUSIVE FEE</span>
           <div class="price-tag">₹799 <del>₹4,999</del></div>
-          <p style="font-size:13px;color:var(--muted)">No monthly subscription. Full masterclass access.</p>
+          <p style="font-size:12px;color:var(--muted)">No recurring subscription. Complete lifetime portal access.</p>
           <ul class="card-perks">
-            <li>✔ Complete 8 Module In-Depth Curriculum</li>
+            <li>✔ Full 8-Module Agency Syllabus</li>
             <li>✔ Instant Automated Student ID Card with Roll Number</li>
-            <li>✔ Official Payment Receipt & Course Notes</li>
-            <li>✔ Dedicated WhatsApp Mentor Access</li>
+            <li>✔ Official Tax Invoice / Payment Voucher</li>
+            <li>✔ Dedicated WhatsApp Mentor Support</li>
           </ul>
-          <a class="btn btn-primary" href="#enroll" style="width:100%;padding:14px">Claim Your Seat Now</a>
+          <a class="btn btn-primary" href="#enroll" style="width:100%;padding:13px">Register for Course</a>
         </div>
       </div>
     </div>
@@ -308,9 +284,9 @@ button, input, select, textarea { font-family: inherit; }
   <!-- TRUST STRIP -->
   <div class="trust-strip">
     <div class="container strip-items">
-      <div><h4>Agency-Grade Curriculum</h4><p>Real campaigns, not just theory</p></div>
-      <div><h4>Self-Paced Learning</h4><p>Learn whenever you want</p></div>
-      <div><h4>Automated ID System</h4><p>Instant digital credentials</p></div>
+      <div><h4>Agency-Grade Syllabus</h4><p>Real-world campaign execution</p></div>
+      <div><h4>Self-Paced Learning</h4><p>Access anytime on mobile</p></div>
+      <div><h4>Automated ID System</h4><p>Digital student verification</p></div>
       <div><h4>Mentor Support</h4><p>Direct WhatsApp resolution</p></div>
     </div>
   </div>
@@ -321,13 +297,13 @@ button, input, select, textarea { font-family: inherit; }
       <div class="section-head">
         <div class="pill-badge">Detailed Syllabus</div>
         <h2>Structured Learning Roadmap</h2>
-        <p>Everything carefully organized from foundations to advanced media buying.</p>
+        <p>Carefully sequenced modules covering organic growth and media buying.</p>
       </div>
       <div class="modules-grid">
-        <div class="module-box"><span class="module-tag">Module 01</span><h3>Marketing Foundations</h3><p>Audience profiling, positioning, offers, and high-converting marketing funnels.</p></div>
+        <div class="module-box"><span class="module-tag">Module 01</span><h3>Marketing Foundations</h3><p>Audience profiling, positioning, offers, and marketing funnels.</p></div>
         <div class="module-box"><span class="module-tag">Module 02</span><h3>Search Engine Optimization</h3><p>Keywords research, on-page optimization, search console, and backlink strategies.</p></div>
         <div class="module-box"><span class="module-tag">Module 03</span><h3>Content & Copywriting</h3><p>Viral hook creation, ad copy psychology, content calendars, and storytelling.</p></div>
-        <div class="module-box"><span class="module-tag">Module 04</span><h3>Social Media Growth</h3><p>Growth hacking Instagram, LinkedIn personal branding, and organic reach tactics.</p></div>
+        <div class="module-box"><span class="module-tag">Module 04</span><h3>Social Media Growth</h3><p>Growth hacking Instagram, LinkedIn personal branding, and organic reach.</p></div>
         <div class="module-box"><span class="module-tag">Module 05</span><h3>Meta & Google Ads Pro</h3><p>Campaign architecture, custom audiences, retargeting funnels, and ROI tracking.</p></div>
         <div class="module-box"><span class="module-tag">Module 06</span><h3>Email Marketing & CRM</h3><p>Lead magnet design, automated drip sequences, and list segmentation rules.</p></div>
         <div class="module-box"><span class="module-tag">Module 07</span><h3>Web Analytics (GA4)</h3><p>Event tracking, data visualization, reading metrics, and client reporting.</p></div>
@@ -341,19 +317,19 @@ button, input, select, textarea { font-family: inherit; }
     <div class="container">
       <div class="section-head">
         <div class="pill-badge">Why Disa Study</div>
-        <h2>Designed for Real Results</h2>
+        <h2>Built for Practical Learning</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:20px">
-        <div style="border:1px solid var(--border);padding:24px;border-radius:var(--radius-md)">
-          <h3 style="margin-bottom:8px">Automated Digital ID Card</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:16px">
+        <div style="border:1px solid var(--border);padding:20px;border-radius:var(--radius)">
+          <h3 style="margin-bottom:6px">Automated Digital ID Card</h3>
           <p style="font-size:13px;color:var(--muted)">Get an official verified digital student card with your personalized Roll Number ready for download and print.</p>
         </div>
-        <div style="border:1px solid var(--border);padding:24px;border-radius:var(--radius-md)">
-          <h3 style="margin-bottom:8px">Transparent UPI Checkout</h3>
-          <p style="font-size:13px;color:var(--muted)">Pay directly via Google Pay, PhonePe, Paytm, or BHIM UPI without paying intermediary convenience fees.</p>
+        <div style="border:1px solid var(--border);padding:20px;border-radius:var(--radius)">
+          <h3 style="margin-bottom:6px">Transparent UPI Checkout</h3>
+          <p style="font-size:13px;color:var(--muted)">Pay directly via Google Pay, PhonePe, Paytm, or BHIM UPI without convenience fee surcharges.</p>
         </div>
-        <div style="border:1px solid var(--border);padding:24px;border-radius:var(--radius-md)">
-          <h3 style="margin-bottom:8px">WhatsApp Direct Connect</h3>
+        <div style="border:1px solid var(--border);padding:20px;border-radius:var(--radius)">
+          <h3 style="margin-bottom:6px">WhatsApp Direct Connect</h3>
           <p style="font-size:13px;color:var(--muted)">Instant faculty query redressal over WhatsApp so you never get stuck while practicing campaigns.</p>
         </div>
       </div>
@@ -365,45 +341,45 @@ button, input, select, textarea { font-family: inherit; }
     <div class="container enroll-wrap">
       <div>
         <div class="pill-badge">Admissions 2026</div>
-        <h2 style="font-size:36px;margin:10px 0">Student Enrollment</h2>
-        <p style="color:var(--muted);margin-bottom:20px">Fill out your details to generate your student profile. Pay the course fee of ₹799 to activate your account.</p>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px">
-          <h4 style="margin-bottom:10px">Simple Admission Steps:</h4>
-          <ol style="padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:8px">
-            <li>Register your name, mobile, and login password.</li>
-            <li>Scan the official QR code or tap the UPI button.</li>
-            <li>Submit your 12-digit UTR reference number.</li>
-            <li>Login to access learning modules and your automated Student ID Card.</li>
+        <h2 style="font-size:32px;margin:8px 0">Student Enrollment</h2>
+        <p style="color:var(--muted);font-size:14px;margin-bottom:18px">Register your details below to create your student account. Complete the ₹799 payment to unlock the portal.</p>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px">
+          <h4 style="margin-bottom:8px">Simple Admission Steps:</h4>
+          <ol style="padding-left:16px;font-size:12px;color:var(--muted);display:grid;gap:6px">
+            <li>Submit personal and contact details.</li>
+            <li>Scan official QR code or tap UPI link.</li>
+            <li>Submit the 12-digit UTR transaction number.</li>
+            <li>Login to access courses, study notes, and ID Card.</li>
           </ol>
         </div>
       </div>
 
       <div class="form-card">
         <h3>New Student Registration</h3>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:18px">Already registered? <button id="open-login-from-form" type="button" style="background:none;border:0;color:var(--primary);font-weight:800;cursor:pointer">Login here</button></p>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:16px">Already registered? <button id="open-login-from-form" type="button" style="background:none;border:0;color:var(--primary);font-weight:800;cursor:pointer">Login here</button></p>
         
         <form id="enrollment-form">
           <div class="form-grid">
             <div class="field"><label for="name">Student Name *</label><input id="name" name="name" placeholder="Full name" required minlength="2"></div>
             <div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" name="mobile" type="tel" placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" required></div>
             <div class="field"><label for="email">Email Address *</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
-            <div class="field"><label for="city">City / State *</label><input id="city" name="city" placeholder="Your location" required></div>
+            <div class="field"><label for="city">City / State *</label><input id="city" name="city" placeholder="Your city" required></div>
             <div class="field full"><label for="password">Create Portal Password *</label><input id="password" name="password" type="password" minlength="8" placeholder="At least 8 characters" required></div>
-            <div class="field"><label for="education">Current Status *</label><select id="education" name="education" required><option value="" disabled selected>Select status</option><option>Student</option><option>Job Professional</option><option>Business / Freelancer</option></select></div>
+            <div class="field"><label for="education">Current Status *</label><select id="education" name="education" required><option value="" disabled selected>Select status</option><option>Student</option><option>Working Professional</option><option>Business / Freelancer</option></select></div>
             <div class="field"><label for="goal">Primary Goal *</label><select id="goal" name="goal" required><option value="" disabled selected>Select goal</option><option>Career / Job</option><option>Freelancing</option><option>Business Growth</option></select></div>
           </div>
-          <button class="btn btn-primary" type="submit" style="width:100%;padding:14px">Continue to Payment (₹799) →</button>
+          <button class="btn btn-primary" type="submit" style="width:100%;padding:13px">Continue to Payment (₹799) →</button>
 
           <!-- PAYMENT STEP -->
           <div class="payment-step" id="payment-step">
             <h4>UPI Payment Step (₹799)</h4>
-            <p style="font-size:12px;color:var(--muted)">Scan using PhonePe, GPay, Paytm or click to pay:</p>
+            <p style="font-size:12px;color:var(--muted)">Scan using PhonePe, GPay, Paytm or tap below:</p>
             <div class="qr-container">
               <img id="payment-qr" class="qr-img" src="./qr.png" alt="Disa Study QR Code">
               <div>
                 <div style="font-size:11px;color:var(--muted);font-weight:700">UPI ID:</div>
                 <div class="upi-id" style="font-weight:900;font-size:15px;color:var(--dark)">samtiwari06@axl</div>
-                <div style="display:flex;gap:8px;margin-top:10px">
+                <div style="display:flex;gap:6px;margin-top:10px">
                   <a class="btn btn-primary" id="pay-upi" href="#" style="padding:8px 12px;font-size:12px">Open UPI App</a>
                   <button type="button" class="btn btn-secondary" id="copy-upi" style="padding:8px 12px;font-size:12px">Copy VPA</button>
                 </div>
@@ -430,7 +406,7 @@ button, input, select, textarea { font-family: inherit; }
       <div class="faq-list">
         <details class="faq-card"><summary>How will I get my Student ID Card?</summary><p>Once registered, open your student dashboard. The automated Student ID Card tab immediately loads your personalized card with Roll Number and details.</p></details>
         <details class="faq-card"><summary>Is the fee ₹799 only once?</summary><p>Yes, ₹799 is the complete one-time enrollment fee for the entire masterclass, notes, and certification.</p></details>
-        <details class="faq-card"><summary>Does this work smoothly on mobile phones?</summary><p>Yes! Disa Study is 100% optimized for Android and iOS mobile browsers with smooth navigation and instant printing.</p></details>
+        <details class="faq-card"><summary>Does this work smoothly on mobile phones?</summary><p>Yes! Disa Study is 100% optimized for mobile browsers with touch navigation and instant PDF downloads.</p></details>
       </div>
     </div>
   </section>
@@ -440,51 +416,51 @@ button, input, select, textarea { font-family: inherit; }
 <section id="dashboard-screen" class="dash-screen">
   <div class="dash-topbar">
     <div class="brand"><div class="brand-mark">D</div> <span>Disa Study Portal</span></div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <span style="font-size:13px;font-weight:700" id="dash-user-label">Student</span>
-      <button class="btn btn-secondary" id="signout-button" type="button" style="padding:8px 14px;font-size:12px">Sign Out</button>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="font-size:12px;font-weight:700" id="dash-user-label">Student</span>
+      <button class="btn btn-secondary" id="signout-button" type="button" style="padding:6px 12px;font-size:11px">Sign Out</button>
     </div>
   </div>
 
   <div class="dash-layout">
-    <!-- DASHBOARD SIDEBAR -->
+    <!-- DASHBOARD SIDEBAR (DESKTOP + MOBILE HORIZONTAL SCROLL) -->
     <aside class="dash-sidebar">
       <button class="dash-tab-btn active" data-tab="overview">📊 Overview</button>
       <button class="dash-tab-btn" data-tab="modules">📚 Course Lectures</button>
       <button class="dash-tab-btn" data-tab="idcard">🪪 Student ID Card</button>
-      <button class="dash-tab-btn" data-tab="receipt">📄 Fee Receipt</button>
+      <button class="dash-tab-btn" data-tab="receipt">📄 Tax Invoice</button>
       <button class="dash-tab-btn" data-tab="notes">📝 Course Notes</button>
       <button class="dash-tab-btn" data-tab="support">💬 Mentor Support</button>
     </aside>
 
     <!-- CONTENT PANES -->
     <main class="dash-pane-wrap">
-      <div id="dashboard-message" class="success" style="margin-bottom:16px"></div>
+      <div id="dashboard-message" class="success" style="margin-bottom:14px"></div>
 
       <!-- PANE 1: OVERVIEW -->
       <div class="dash-pane active" id="pane-overview">
         <div class="widget-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap">
             <span class="pill-badge" id="status-pill">STATUS</span>
-            <span style="font-size:12px;color:var(--muted)">Session 2026</span>
+            <span style="font-size:11px;color:var(--muted)">Session 2026</span>
           </div>
-          <h2 style="font-size:24px;margin-bottom:4px">Welcome back, <span id="dashboard-name">Student</span></h2>
-          <p id="status-copy" style="font-size:14px;color:var(--muted)"></p>
+          <h2 style="font-size:22px;margin-bottom:4px">Welcome back, <span id="dashboard-name">Student</span></h2>
+          <p id="status-copy" style="font-size:13px;color:var(--muted)"></p>
         </div>
 
         <!-- RESUME PAYMENT CARD IF AWAITING -->
         <div class="widget-card" id="resume-payment-panel" style="display:none;background:#fefce8;border-color:#fef08a">
           <h3>Finish Admission Payment</h3>
-          <p style="font-size:13px;color:#854d0e;margin:6px 0 14px">Complete ₹799 UPI payment to unlock learning lectures and official ID card.</p>
+          <p style="font-size:12px;color:#854d0e;margin:4px 0 12px">Complete ₹799 UPI payment to unlock learning lectures and official ID card.</p>
           <div class="qr-container">
             <img id="resume-payment-qr" class="qr-img" src="./qr.png" alt="Disa Study QR">
             <div>
-              <div style="font-size:11px;color:#854d0e;font-weight:700">PAY TO UPI:</div>
+              <div style="font-size:10px;color:#854d0e;font-weight:700">PAY TO UPI:</div>
               <div class="upi-id" style="font-weight:900;font-size:15px">samtiwari06@axl</div>
-              <a class="btn btn-primary" id="resume-pay-upi" href="#" style="margin-top:10px;padding:8px 12px;font-size:12px">Open UPI App</a>
+              <a class="btn btn-primary" id="resume-pay-upi" href="#" style="margin-top:8px;padding:8px 12px;font-size:12px">Open UPI App</a>
             </div>
           </div>
-          <div class="field" style="margin-top:12px"><label for="resume-utr">Enter UTR Reference *</label><input id="resume-utr" placeholder="12-digit transaction number"></div>
+          <div class="field" style="margin-top:10px"><label for="resume-utr">Enter UTR Reference *</label><input id="resume-utr" placeholder="12-digit transaction number"></div>
           <label style="display:flex;gap:8px;font-size:12px;margin:10px 0"><input type="checkbox" id="resume-paid-confirm"> I completed this transaction</label>
           <button class="btn btn-primary" id="resume-submit-payment" type="button">Submit Payment Details</button>
           <div id="resume-payment-message" class="success"></div>
@@ -495,8 +471,8 @@ button, input, select, textarea { font-family: inherit; }
       <div class="dash-pane" id="pane-modules">
         <div class="widget-card">
           <h2>Masterclass Lectures</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:20px">High-definition lectures and resources prepared by agency founders.</p>
-          <div class="modules-grid" style="grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))">
+          <p style="color:var(--muted);font-size:13px;margin-bottom:18px">High-definition lectures and resources prepared by agency mentors.</p>
+          <div class="modules-grid" style="grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))">
             <div class="module-box"><span class="module-tag">Lecture 01</span><h3>Funnel Architecture</h3><p>Mapping high-converting customer journeys.</p></div>
             <div class="module-box"><span class="module-tag">Lecture 02</span><h3>SEO Ranking Formula</h3><p>Keywords, site speed, and structured metadata.</p></div>
             <div class="module-box"><span class="module-tag">Lecture 03</span><h3>Copywriting & Visuals</h3><p>Writing ad copies that command attention.</p></div>
@@ -509,7 +485,7 @@ button, input, select, textarea { font-family: inherit; }
       <div class="dash-pane" id="pane-idcard">
         <div class="widget-card" style="text-align:center">
           <h2>Automated Student Identity Card</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:24px">Official verification card issued by Disa Study Department of Education.</p>
+          <p style="color:var(--muted);font-size:12px;margin-bottom:20px">Official verification card issued by Disa Study Department of Education.</p>
           
           <div class="id-badge-canvas">
             <div class="id-band">
@@ -530,22 +506,22 @@ button, input, select, textarea { font-family: inherit; }
                 <div class="id-info-row"><span>Academic Session:</span><strong>2026</strong></div>
               </div>
               <div class="id-barcode"></div>
-              <div style="font-size:10px;color:var(--muted);margin-top:8px">Valid for official verification across Disa Study network</div>
+              <div style="font-size:9px;color:var(--muted);margin-top:6px">Valid for official verification across Disa Study network</div>
             </div>
           </div>
           
-          <div style="margin-top:20px">
+          <div style="margin-top:18px">
             <button class="btn btn-primary" onclick="window.print()" type="button">🖨️ Print ID Card / Save as PDF</button>
           </div>
         </div>
       </div>
 
-      <!-- PANE 4: RECEIPT -->
+      <!-- PANE 4: TAX INVOICE -->
       <div class="dash-pane" id="pane-receipt">
         <div class="widget-card">
-          <h2>Official Fee Payment Receipt</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Generated instantly for your accounting and taxation records.</p>
-          <button class="btn btn-primary" id="receipt-button" type="button">Download Branded Receipt (PDF)</button>
+          <h2>Official Fee Payment Tax Invoice</h2>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Official GST/SAC compliant course enrollment tax voucher.</p>
+          <button class="btn btn-primary" id="receipt-button" type="button">Download Branded Tax Invoice (PDF)</button>
         </div>
       </div>
 
@@ -553,7 +529,7 @@ button, input, select, textarea { font-family: inherit; }
       <div class="dash-pane" id="pane-notes">
         <div class="widget-card">
           <h2>Course Resource Notes</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Download cheat-sheets, keyword templates, and ad scripts.</p>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Download cheat-sheets, keyword templates, and ad scripts.</p>
           <button class="btn btn-primary" id="download-notes" type="button">Download Complete Notes Package</button>
         </div>
       </div>
@@ -562,7 +538,7 @@ button, input, select, textarea { font-family: inherit; }
       <div class="dash-pane" id="pane-support">
         <div class="widget-card">
           <h2>Faculty Help Desk</h2>
-          <p style="color:var(--muted);font-size:13px;margin-bottom:16px">Direct mentor support on WhatsApp for quick doubts resolution.</p>
+          <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Direct mentor support on WhatsApp for quick doubts resolution.</p>
           <a class="btn btn-primary" href="https://wa.me/919630958789" target="_blank">Chat with Mentor (+91 96309 58789) ↗</a>
         </div>
       </div>
@@ -582,12 +558,12 @@ button, input, select, textarea { font-family: inherit; }
 <div class="modal-overlay" id="login-modal">
   <div class="modal-box">
     <button class="modal-close" id="login-close">×</button>
-    <div class="brand" style="margin-bottom:8px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
-    <h3 style="font-size:20px;margin-bottom:4px">Student Portal Login</h3>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Access course lectures and your Student ID Card.</p>
+    <div class="brand" style="margin-bottom:6px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
+    <h3 style="font-size:19px;margin-bottom:2px">Student Portal Login</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Access course lectures and your Student ID Card.</p>
     <form id="login-form">
-      <div class="field" style="margin-bottom:12px"><label>Email Address</label><input id="login-email" type="email" placeholder="student@example.com" required></div>
-      <div class="field" style="margin-bottom:16px"><label>Password</label><input id="login-password" type="password" required></div>
+      <div class="field" style="margin-bottom:10px"><label>Email Address</label><input id="login-email" type="email" placeholder="student@example.com" required></div>
+      <div class="field" style="margin-bottom:14px"><label>Password</label><input id="login-password" type="password" required></div>
       <div id="login-message" class="success"></div>
       <button class="btn btn-primary" type="submit" style="width:100%">Sign In to Portal</button>
     </form>
@@ -599,8 +575,8 @@ button, input, select, textarea { font-family: inherit; }
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="brand" style="color:#fff;margin-bottom:12px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
-        <p style="font-size:13px;color:#94a3b8;max-width:300px">Official Ed-Tech initiative delivering agency-grade practical skills for career advancement.</p>
+        <div class="brand" style="color:#fff;margin-bottom:10px"><div class="brand-mark">D</div> <span>Disa Study</span></div>
+        <p style="font-size:12px;color:#94a3b8;max-width:300px">Official Ed-Tech initiative delivering agency-grade practical skills for career advancement.</p>
       </div>
       <div>
         <h4>Course Topics</h4>
@@ -620,7 +596,7 @@ button, input, select, textarea { font-family: inherit; }
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid #1e293b;padding-top:20px;display:flex;justify-content:space-between;font-size:12px;color:#64748b;flex-wrap:wrap;gap:10px">
+    <div style="border-top:1px solid #1e293b;padding-top:16px;display:flex;justify-content:space-between;font-size:11px;color:#64748b;flex-wrap:wrap;gap:8px">
       <div>© <span id="year"></span> Disa Study. All rights reserved.</div>
       <div>Accredited Student Learning System</div>
     </div>
