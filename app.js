@@ -7,7 +7,7 @@ const $ = (selector) => document.querySelector(selector);
 const configReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
 let auth, db, currentPayment;
 
-// EXACT VERIFIED SETTINGS
+// EXACT VERIFIED CREDENTIALS
 const paymentSettings = { upiId: "samtiwari06@axl", qrPath: "./qr.png" };
 let isSigningUp = false;
 
@@ -15,7 +15,7 @@ const form = $("#enrollment-form");
 const paymentStep = $("#payment-step");
 const loginModal = $("#login-modal");
 const dashboard = $("#dashboard-screen");
-const ENROLLMENT_DRAFT_KEY = "disastudy-draft-v2";
+const ENROLLMENT_DRAFT_KEY = "disastudy-v3-draft";
 const enrollmentDraftFields = ["name", "mobile", "email", "city", "education", "goal"];
 
 function buildUpiUri() {
@@ -24,7 +24,7 @@ function buildUpiUri() {
     pn: "Disa Study",
     am: "799.00",
     cu: "INR",
-    tn: "Disa Study Fee"
+    tn: "Disa Study Admission Fee"
   };
   return `upi://pay?${Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&")}`;
 }
@@ -36,33 +36,45 @@ function renderPaymentOptions() {
     if (link) link.href = uri;
   });
 
-  // Use local qr.png directly, with smart fallback to live QR generator if file missing
+  // Local image priority with auto live QR fallback
   ["#payment-qr", "#resume-payment-qr"].forEach((selector) => {
-    const image = $(selector);
-    if (image) {
-      image.src = paymentSettings.qrPath;
-      image.onerror = () => {
-        image.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(uri)}`;
+    const img = $(selector);
+    if (img) {
+      img.src = paymentSettings.qrPath;
+      img.onerror = () => {
+        img.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(uri)}`;
       };
     }
   });
 
-  document.querySelectorAll(".upi-id").forEach((node) => {
-    node.textContent = paymentSettings.upiId;
+  document.querySelectorAll(".upi-id").forEach((el) => {
+    el.textContent = paymentSettings.upiId;
   });
 }
 
 $("#year").textContent = new Date().getFullYear();
 renderPaymentOptions();
 
-// MOBILE DRAWER HANDLERS
-$("#drawer-toggle")?.addEventListener("click", () => $("#mobile-drawer")?.classList.add("active"));
-$("#drawer-close")?.addEventListener("click", () => $("#mobile-drawer")?.classList.remove("active"));
-document.querySelectorAll(".drawer-item").forEach((el) => {
-  el.addEventListener("click", () => $("#mobile-drawer")?.classList.remove("active"));
+// LEFT-SIDE DRAWER CONTROLLERS
+const drawer = $("#left-drawer");
+const backdrop = $("#drawer-backdrop");
+function openDrawer() {
+  drawer?.classList.add("active");
+  backdrop?.classList.add("active");
+}
+function closeDrawer() {
+  drawer?.classList.remove("active");
+  backdrop?.classList.remove("active");
+}
+
+$("#left-drawer-open")?.addEventListener("click", openDrawer);
+$("#drawer-close-btn")?.addEventListener("click", closeDrawer);
+backdrop?.addEventListener("click", closeDrawer);
+document.querySelectorAll(".drawer-link").forEach((link) => {
+  link.addEventListener("click", closeDrawer);
 });
 
-// FORM DRAFT IN LOCAL STORAGE
+// FORM DRAFT STORAGE
 function saveDraft() {
   const draft = {};
   enrollmentDraftFields.forEach((name) => {
@@ -123,10 +135,10 @@ function setBusy(button, busy, label) {
 function friendlyError(error) {
   const code = error?.code || "";
   if (code.includes("auth/invalid-email")) return "Please enter a valid email address.";
-  if (code.includes("email-already-in-use")) return "This email is already registered. Please login through Student Portal.";
-  if (code.includes("weak-password")) return "Password must be at least 8 characters long.";
+  if (code.includes("email-already-in-use")) return "This email is already registered. Please login using Student Login.";
+  if (code.includes("weak-password")) return "Password must be at least 8 characters.";
   if (code.includes("invalid-credential") || code.includes("user-not-found")) return "Incorrect email or password.";
-  return error?.message || "An unexpected error occurred. Please try again.";
+  return error?.message || "An error occurred. Please try again.";
 }
 
 if (configReady) {
@@ -135,12 +147,12 @@ if (configReady) {
   db = getFirestore(app);
 }
 
-// ENROLLMENT FORM SUBMIT
+// FORM SUBMISSION
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (!form.reportValidity()) return;
   const button = form.querySelector('[type="submit"]');
-  setBusy(button, true, "Proceed to Payment (₹799) →");
+  setBusy(button, true, "Continue to Payment (₹799) →");
   try {
     const values = new FormData(form);
     isSigningUp = true;
@@ -152,7 +164,7 @@ form.addEventListener("submit", async (event) => {
     isSigningUp = false;
     paymentStep.style.display = "block";
     paymentStep.scrollIntoView({ behavior: "smooth", block: "center" });
-    showMessage("#form-success", "Student record registered! Please scan the QR code to finish enrollment.");
+    showMessage("#form-success", "Student registered! Scan the QR code below to complete admission.");
   } catch (error) {
     isSigningUp = false;
     showMessage("#form-success", friendlyError(error), true);
@@ -161,21 +173,21 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-$("#copy-upi")?.addEventListener("click", async (event) => {
+$("#copy-upi")?.addEventListener("click", async (e) => {
   try {
     await navigator.clipboard.writeText(paymentSettings.upiId);
-    event.currentTarget.textContent = "VPA Copied ✓";
+    e.currentTarget.textContent = "Copied ✓";
   } catch {
-    event.currentTarget.textContent = paymentSettings.upiId;
+    e.currentTarget.textContent = paymentSettings.upiId;
   }
 });
 
-// UTR SUBMISSION & WHATSAPP
+// UTR SUBMISSION & AUTOMATED WHATSAPP
 async function submitPaymentProof(utrInput, paidInput, messageSelector, button) {
   const user = auth?.currentUser;
   if (!user) { showMessage(messageSelector, "Session expired. Please log in first.", true); return; }
-  if (!utrInput.value.trim()) { utrInput.setCustomValidity("Please enter transaction reference / UTR"); utrInput.reportValidity(); return; }
-  if (!paidInput.checked) { showMessage(messageSelector, "Please check the transaction confirmation box.", true); return; }
+  if (!utrInput.value.trim()) { utrInput.setCustomValidity("Please enter transaction UTR reference"); utrInput.reportValidity(); return; }
+  if (!paidInput.checked) { showMessage(messageSelector, "Please check the payment confirmation box.", true); return; }
 
   const whatsappWindow = window.open("about:blank", "_blank");
   setBusy(button, true, button.textContent.trim());
@@ -189,19 +201,19 @@ async function submitPaymentProof(utrInput, paidInput, messageSelector, button) 
       "Official Admission Verification · Disa Study",
       "",
       "Student Name: " + (values.name || user.displayName),
-      "Registered Contact: " + (values.mobile || ""),
-      "Student Email: " + (values.email || user.email),
-      "Transaction UTR: " + utrInput.value.trim(),
+      "Mobile: " + (values.mobile || ""),
+      "Email: " + (values.email || user.email),
       "Course: Digital Marketing Masterclass",
       "Amount Paid: ₹799",
+      "Transaction UTR: " + utrInput.value.trim(),
       "",
-      "Please verify my payment and issue my Student ID Card."
+      "Please verify my UTR and approve my Student ID Card."
     ].join("\n");
 
     const whatsappUrl = "https://wa.me/919630958789?text=" + encodeURIComponent(message);
     if (whatsappWindow) whatsappWindow.location.href = whatsappUrl;
     await renderStudent(user);
-    showMessage("#dashboard-message", "UTR submitted successfully! Course access and Student ID will activate once confirmed.");
+    showMessage("#dashboard-message", "Payment submitted! Access will unlock once verified.");
   } catch (error) {
     whatsappWindow?.close();
     showMessage(messageSelector, friendlyError(error), true);
@@ -213,24 +225,24 @@ async function submitPaymentProof(utrInput, paidInput, messageSelector, button) 
 $("#send-whatsapp")?.addEventListener("click", () => submitPaymentProof($("#utr"), $("#paid-confirm"), "#payment-message", $("#send-whatsapp")));
 $("#resume-submit-payment")?.addEventListener("click", () => submitPaymentProof($("#resume-utr"), $("#resume-paid-confirm"), "#resume-payment-message", $("#resume-submit-payment")));
 
-// LOGIN MODAL LOGIC
+// LOGIN MODAL CONTROLS
 function openLogin() {
   loginModal.style.display = "grid";
-  $("#mobile-drawer")?.classList.remove("active");
+  closeDrawer();
   $("#login-email")?.focus();
 }
 $("#student-login-open")?.addEventListener("click", openLogin);
-$("#mobile-login-btn")?.addEventListener("click", openLogin);
+$("#drawer-login-btn")?.addEventListener("click", openLogin);
 $("#open-login-from-form")?.addEventListener("click", openLogin);
 $("#login-close")?.addEventListener("click", () => loginModal.style.display = "none");
 
-$("#login-form")?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const button = event.currentTarget.querySelector("button[type=submit]");
-  setBusy(button, true, "Sign In to Portal");
+$("#login-form")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const button = e.currentTarget.querySelector("button[type=submit]");
+  setBusy(button, true, "Signing In...");
   try {
     await signInWithEmailAndPassword(auth, $("#login-email").value.trim(), $("#login-password").value);
-    showMessage("#login-message", "Authenticated! Redirecting to student portal…");
+    showMessage("#login-message", "Verified! Redirecting to student portal…");
   } catch (error) {
     showMessage("#login-message", friendlyError(error), true);
   } finally {
@@ -238,7 +250,7 @@ $("#login-form")?.addEventListener("submit", async (event) => {
   }
 });
 
-// STUDENT DASHBOARD RENDER
+// STUDENT DASHBOARD RENDER & TABS
 async function renderStudent(user) {
   document.body.classList.add("dashboard-mode");
   dashboard.style.display = "block";
@@ -258,7 +270,7 @@ async function renderStudent(user) {
     renderStudentStatus(currentPayment);
   }
 
-  // Populate Automated ID Card Tab
+  // Populate Automated Student ID Card
   const rollNumber = `DS-${(user.uid).slice(-6).toUpperCase()}`;
   $("#id-avatar").textContent = displayName.charAt(0).toUpperCase();
   $("#id-name").textContent = displayName;
@@ -273,32 +285,32 @@ function renderStudentStatus(payment) {
   const awaiting = payment?.status === "awaiting_payment";
   const pending = payment?.status === "payment_submitted";
 
-  $("#status-pill").textContent = approved ? "ACTIVE SCHOLAR · VERIFIED" : awaiting ? "PAYMENT PENDING" : pending ? "UNDER ACADEMIC REVIEW" : "REGISTERED";
+  $("#status-pill").textContent = approved ? "VERIFIED SCHOLAR" : awaiting ? "PAYMENT PENDING" : pending ? "IN VERIFICATION" : "REGISTERED";
   $("#status-copy").textContent = approved 
-    ? "Your admission is officially approved by Disa Study. Full lecture modules, resource notes, and verified ID Card are unlocked." 
+    ? "Your admission is approved. All 8 masterclass modules, study notes, and your verified Student ID Card are active."
     : awaiting 
-    ? "Your registration is saved. Complete the ₹799 UPI transfer below to unlock the curriculum and credentials." 
-    : "Your transaction reference has been recorded. Our admissions desk will approve your portal shortly.";
+    ? "Complete your ₹799 UPI transfer below to unlock the curriculum and download your Student ID Card."
+    : "Your transaction UTR is submitted. Disa Study desk will approve your portal access shortly.";
 
   $("#resume-payment-panel").style.display = awaiting ? "block" : "none";
   $("#receipt-button").style.display = approved ? "inline-flex" : "none";
   $("#receipt-button").onclick = () => downloadReceipt(payment);
 }
 
-// DASHBOARD TABS SWITCHING
-document.querySelectorAll(".sidebar-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    document.querySelectorAll(".sidebar-link").forEach((l) => l.classList.remove("active"));
-    document.querySelectorAll(".content-pane").forEach((pane) => pane.classList.remove("active"));
-    link.classList.add("active");
-    const targetPane = $(`#pane-${link.dataset.tab}`);
-    if (targetPane) targetPane.classList.add("active");
+// DASHBOARD TAB SWITCHING
+document.querySelectorAll(".dash-tab-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".dash-tab-btn").forEach((b) => b.classList.remove("active"));
+    document.querySelectorAll(".dash-pane").forEach((p) => p.classList.remove("active"));
+    btn.classList.add("active");
+    const target = $(`#pane-${btn.dataset.tab}`);
+    if (target) target.classList.add("active");
   });
 });
 
 // DOWNLOAD RECEIPT
 function downloadReceipt(payment) {
-  const receipt = `<!doctype html><html><head><title>Receipt · Disa Study</title><style>body{font-family:'Segoe UI',sans-serif;padding:36px;color:#1e293b}.receipt{max-width:640px;margin:auto;border:1px solid #cbd5e1;padding:32px;border-radius:18px}.brand{font-size:24px;font-weight:900;color:#4f46e5;margin-bottom:6px}.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9}</style></head><body><div class="receipt"><div class="brand">DISA STUDY</div><div style="font-size:12px;color:#64748b;margin-bottom:24px">Official Course Admission Voucher</div><div class="row"><span>Student Name:</span><strong>${payment.name}</strong></div><div class="row"><span>Registered Email:</span><strong>${payment.email}</strong></div><div class="row"><span>Course:</span><strong>Digital Marketing Masterclass</strong></div><div class="row"><span>Amount Paid:</span><strong>₹799.00 (INR)</strong></div><div class="row"><span>Payment Mode:</span><strong>UPI (samtiwari06@axl)</strong></div><div class="row"><span>Transaction UTR:</span><strong>${payment.utr || "Verified"}</strong></div><div class="row"><span>Admission Status:</span><strong style="color:#059669">Approved & Verified</strong></div><div style="margin-top:28px;text-align:center"><button style="padding:10px 24px;background:#4f46e5;color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer" onclick="window.print()">Print Voucher</button></div></div></body></html>`;
+  const receipt = `<!doctype html><html><head><meta charset="utf-8"><title>Receipt · Disa Study</title><style>body{font-family:'Plus Jakarta Sans',sans-serif;padding:36px;color:#1e293b}.receipt{max-width:620px;margin:auto;border:1px solid #cbd5e1;padding:32px;border-radius:18px}.brand{font-size:24px;font-weight:900;color:#4f46e5;margin-bottom:6px}.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9}</style></head><body><div class="receipt"><div class="brand">DISA STUDY</div><div style="font-size:12px;color:#64748b;margin-bottom:24px">Official Course Admission Voucher</div><div class="row"><span>Student Name:</span><strong>${payment.name}</strong></div><div class="row"><span>Email:</span><strong>${payment.email}</strong></div><div class="row"><span>Mobile:</span><strong>${payment.mobile}</strong></div><div class="row"><span>Course:</span><strong>Digital Marketing Masterclass</strong></div><div class="row"><span>Amount Paid:</span><strong>₹799.00 (INR)</strong></div><div class="row"><span>UPI VPA:</span><strong>samtiwari06@axl</strong></div><div class="row"><span>Transaction UTR:</span><strong>${payment.utr || "Verified"}</strong></div><div class="row"><span>Status:</span><strong style="color:#059669">Admission Approved</strong></div><div style="margin-top:28px;text-align:center"><button style="padding:10px 24px;background:#4f46e5;color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer" onclick="window.print()">Print / Save PDF</button></div></div></body></html>`;
   const w = window.open("", "_blank");
   w?.document.write(receipt);
   w?.document.close();
