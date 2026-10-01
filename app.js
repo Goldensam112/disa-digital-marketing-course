@@ -7,7 +7,7 @@ const $ = (selector) => document.querySelector(selector);
 const configReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith("YOUR_");
 let auth, db, currentPayment;
 
-// EXACT VERIFIED CREDENTIALS
+// EXACT VERIFIED SETTINGS
 const paymentSettings = { upiId: "samtiwari06@axl", qrPath: "./qr.png" };
 let isSigningUp = false;
 
@@ -15,7 +15,7 @@ const form = $("#enrollment-form");
 const paymentStep = $("#payment-step");
 const loginModal = $("#login-modal");
 const dashboard = $("#dashboard-screen");
-const ENROLLMENT_DRAFT_KEY = "disastudy-v3-draft";
+const ENROLLMENT_DRAFT_KEY = "disastudy-v4-draft";
 const enrollmentDraftFields = ["name", "mobile", "email", "city", "education", "goal"];
 
 function buildUpiUri() {
@@ -24,7 +24,7 @@ function buildUpiUri() {
     pn: "Disa Study",
     am: "799.00",
     cu: "INR",
-    tn: "Disa Study Admission Fee"
+    tn: "Disa Study Course Admission"
   };
   return `upi://pay?${Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&")}`;
 }
@@ -55,7 +55,7 @@ function renderPaymentOptions() {
 $("#year").textContent = new Date().getFullYear();
 renderPaymentOptions();
 
-// LEFT-SIDE DRAWER CONTROLLERS
+// LEFT-SIDE OFF-CANVAS DRAWER LOGIC
 const drawer = $("#left-drawer");
 const backdrop = $("#drawer-backdrop");
 function openDrawer() {
@@ -294,7 +294,7 @@ function renderStudentStatus(payment) {
 
   $("#resume-payment-panel").style.display = awaiting ? "block" : "none";
   $("#receipt-button").style.display = approved ? "inline-flex" : "none";
-  $("#receipt-button").onclick = () => downloadReceipt(payment);
+  $("#receipt-button").onclick = () => downloadInvoice(payment);
 }
 
 // DASHBOARD TAB SWITCHING
@@ -308,12 +308,129 @@ document.querySelectorAll(".dash-tab-btn").forEach((btn) => {
   });
 });
 
-// DOWNLOAD RECEIPT
-function downloadReceipt(payment) {
-  const receipt = `<!doctype html><html><head><meta charset="utf-8"><title>Receipt · Disa Study</title><style>body{font-family:'Plus Jakarta Sans',sans-serif;padding:36px;color:#1e293b}.receipt{max-width:620px;margin:auto;border:1px solid #cbd5e1;padding:32px;border-radius:18px}.brand{font-size:24px;font-weight:900;color:#4f46e5;margin-bottom:6px}.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f1f5f9}</style></head><body><div class="receipt"><div class="brand">DISA STUDY</div><div style="font-size:12px;color:#64748b;margin-bottom:24px">Official Course Admission Voucher</div><div class="row"><span>Student Name:</span><strong>${payment.name}</strong></div><div class="row"><span>Email:</span><strong>${payment.email}</strong></div><div class="row"><span>Mobile:</span><strong>${payment.mobile}</strong></div><div class="row"><span>Course:</span><strong>Digital Marketing Masterclass</strong></div><div class="row"><span>Amount Paid:</span><strong>₹799.00 (INR)</strong></div><div class="row"><span>UPI VPA:</span><strong>samtiwari06@axl</strong></div><div class="row"><span>Transaction UTR:</span><strong>${payment.utr || "Verified"}</strong></div><div class="row"><span>Status:</span><strong style="color:#059669">Admission Approved</strong></div><div style="margin-top:28px;text-align:center"><button style="padding:10px 24px;background:#4f46e5;color:#fff;border:0;border-radius:8px;font-weight:700;cursor:pointer" onclick="window.print()">Print / Save PDF</button></div></div></body></html>`;
+// ULTRA-PREMIUM TAX INVOICE GENERATOR
+function downloadInvoice(payment) {
+  const invoiceNo = `INV-DDA-${String(payment.uid || "2026").slice(-8).toUpperCase()}`;
+  const invoiceDate = new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "long", year: "numeric" }).format(new Date());
+
+  const invoiceHtml = `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tax Invoice · Disa Study</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;padding:24px;font-family:'Plus Jakarta Sans',sans-serif;background:#f8fafc;color:#1e293b}
+    .invoice-card{max-width:760px;margin:auto;background:#fff;border-radius:18px;border:1px solid #cbd5e1;box-shadow:0 10px 25px rgba(0,0,0,0.06);overflow:hidden;position:relative}
+    .inv-header{background:linear-gradient(135deg,#1e1b4b,#4338ca);color:#fff;padding:28px 32px;display:flex;justify-content:space-between;align-items:center}
+    .inv-brand{font-size:22px;font-weight:900;letter-spacing:-0.5px}
+    .inv-brand span{color:#818cf8}
+    .inv-badge{background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:1px;border:1px solid rgba(255,255,255,0.25)}
+    .inv-body{padding:32px}
+    .inv-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid #f1f5f9}
+    .meta-box h5{font-size:11px;text-transform:uppercase;color:#64748b;letter-spacing:0.8px;margin-bottom:6px}
+    .meta-box p{font-size:13px;font-weight:700;color:#0f172a;line-height:1.5}
+    .inv-table{width:100%;border-collapse:collapse;margin:24px 0}
+    .inv-table th{background:#f8fafc;padding:12px;text-align:left;font-size:12px;font-weight:800;color:#475569;border-bottom:2px solid #e2e8f0}
+    .inv-table td{padding:14px 12px;font-size:13px;border-bottom:1px solid #f1f5f9}
+    .inv-summary{max-width:300px;margin-left:auto;margin-top:20px;display:grid;gap:8px;font-size:13px}
+    .sum-row{display:flex;justify-content:space-between;padding:4px 0}
+    .sum-total{border-top:2px solid #0f172a;padding-top:8px;font-size:16px;font-weight:900;color:#0f172a}
+    .inv-footer{background:#fafafa;padding:20px 32px;border-top:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#64748b}
+    .watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:74px;font-weight:900;color:rgba(79,70,229,0.04);pointer-events:none;white-space:nowrap}
+    .seal{border:2px dashed #10b981;color:#047857;padding:6px 12px;border-radius:8px;font-weight:800;display:inline-block;font-size:11px}
+    .btn-print{display:block;margin:24px auto 0;background:#4338ca;color:#fff;border:0;padding:12px 28px;border-radius:10px;font-weight:800;cursor:pointer;font-size:13px}
+    @media print{
+      body{background:none;padding:0}
+      .btn-print{display:none}
+      .invoice-card{box-shadow:none;border:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-card">
+    <div class="watermark">PAID & VERIFIED</div>
+    <div class="inv-header">
+      <div>
+        <div class="inv-brand">DISA <span>STUDY</span></div>
+        <div style="font-size:11px;opacity:0.85;margin-top:2px">Department of Digital Education</div>
+      </div>
+      <div class="inv-badge">ORIGINAL TAX INVOICE</div>
+    </div>
+    <div class="inv-body">
+      <div class="inv-meta-grid">
+        <div class="meta-box">
+          <h5>Billed To (Student)</h5>
+          <p>${escapeHtml(payment.name || "Student")}</p>
+          <p style="font-weight:500;color:#64748b">${escapeHtml(payment.email || "")}</p>
+          <p style="font-weight:500;color:#64748b">${escapeHtml(payment.mobile || "")}</p>
+          <p style="font-weight:500;color:#64748b">${escapeHtml(payment.city || "India")}</p>
+        </div>
+        <div class="meta-box" style="text-align:right">
+          <h5>Invoice Details</h5>
+          <p>Invoice No: ${invoiceNo}</p>
+          <p style="font-weight:500;color:#64748b">Date: ${invoiceDate}</p>
+          <p style="font-weight:500;color:#64748b">Payment Mode: UPI (${paymentSettings.upiId})</p>
+          <p style="font-weight:500;color:#64748b">UTR: <strong>${escapeHtml(payment.utr || "Verified")}</strong></p>
+        </div>
+      </div>
+
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>Description of Educational Service</th>
+            <th>SAC Code</th>
+            <th style="text-align:right">Amount (INR)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Complete Digital Marketing Masterclass (8 Modules)</strong>
+              <div style="font-size:11px;color:#64748b;margin-top:4px">Includes Automated Digital Student ID Card & Official Study Material</div>
+            </td>
+            <td>999293</td>
+            <td style="text-align:right">₹677.12</td>
+          </tr>
+          <tr>
+            <td>CGST (9%)</td>
+            <td>-</td>
+            <td style="text-align:right">₹60.94</td>
+          </tr>
+          <tr>
+            <td>SGST (9%)</td>
+            <td>-</td>
+            <td style="text-align:right">₹60.94</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="inv-summary">
+        <div class="sum-row"><span>Gross Tuition Fee:</span><span>₹677.12</span></div>
+        <div class="sum-row"><span>Total Tax (18% GST):</span><span>₹121.88</span></div>
+        <div class="sum-row sum-total"><span>Total Paid:</span><span>₹799.00</span></div>
+      </div>
+    </div>
+    <div class="inv-footer">
+      <div>
+        <div class="seal">✓ PAYMENT VERIFIED BY DISA STUDY</div>
+      </div>
+      <div style="text-align:right">
+        This is a computer-generated tax invoice. No signature required.
+      </div>
+    </div>
+  </div>
+  <button class="btn-print" onclick="window.print()">🖨️ Print Tax Invoice / Save PDF</button>
+</body>
+</html>`;
+
   const w = window.open("", "_blank");
-  w?.document.write(receipt);
+  w?.document.write(invoiceHtml);
   w?.document.close();
+}
+
+function escapeHtml(val = "") {
+  return String(val).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 }
 
 // NOTES DOWNLOAD
