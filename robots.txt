@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Private logic & backend configurations
+Disallow: /app.js
+Disallow: /firebase-config.js
+
+# Sitemap location
+Sitemap: https://disadigitalstudy.online/sitemap.xml
